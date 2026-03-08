@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天空智策 SKY STRATECH | 品牌策略 & 创意机构</title>
+    <meta name="description" content="天空智策是一家融合品牌策略、影视创意与AI技术赋能的品牌创意策略机构。">
+    <meta name="keywords" content="天空智策,品牌策略,影视创意,AI营销,品牌咨询,宣传片,TVC,数字人">
+    <meta name="theme-color" content="#e9f1f9">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-primary: #2e6ab0;
+            --brand-accent: #c4956a;
+            --brand-text: #1a1a2e;
+            --brand-surface: #f7f9fc;
+            --font-display: 'Sora', 'Noto Sans SC', sans-serif;
+            --font-serif: 'Noto Serif SC', serif;
+            --font-body: 'Noto Sans SC', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--brand-text);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .font-serif-brand {
+            font-family: var(--font-serif);
+            letter-spacing: -0.05em;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+        }
+
+        .grain-overlay::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+
+        .section-padding {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
+        .leading-tightest {
+            line-height: 0.95;
+        }
+
+        .magazine-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .video-modal {
+            transition: opacity 0.3s ease;
+        }
+
+        .bg-copper {
+            background-color: var(--brand-accent);
+        }
+
+        .text-copper {
+            color: var(--brand-accent);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#2e6ab0',
+                        'brand-accent': '#c4956a',
+                        'brand-text': '#1a1a2e',
+                        'brand-surface': '#f7f9fc',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="grain-overlay">
+
+    <div class="relative">
+        <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+            <div class="container mx-auto px-6 py-6 flex items-center justify-between">
+                <a href="#hero" class="flex flex-col">
+                    <span class="font-serif-brand font-black text-xl leading-none tracking-tighter">天空智策</span>
+                    <span class="font-display text-[9px] tracking-[0.3em] text-gray-400 mt-1">SKY STRATECH</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-10">
+                    <a href="#about" class="text-xs font-bold tracking-widest text-gray-500 hover:text-brand-primary transition-colors">关于</a>
+                    <a href="#capabilities" class="text-xs font-bold tracking-widest text-gray-500 hover:text-brand-primary transition-colors">能力</a>
+                    <a href="#works" class="text-xs font-bold tracking-widest text-gray-500 hover:text-brand-primary transition-colors">案例</a>
+                    <a href="#team" class="text-xs font-bold tracking-widest text-gray-500 hover:text-brand-primary transition-colors">团队</a>
+                    <a href="#contact" class="text-xs font-bold tracking-widest text-gray-500 hover:text-brand-primary transition-colors">联系</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" onclick="toggleMobileMenu()">
+                    <span class="w-5 h-[1.5px] bg-brand-text transition-all"></span>
+                    <span class="w-5 h-[1.5px] bg-brand-text transition-all"></span>
+                    <span class="w-5 h-[1.5px] bg-brand-text transition-all"></span>
+                </button>
+            </div>
+            <nav id="mobile-menu" class="hidden md:hidden mx-6 mb-4 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-2xl p-4 shadow-lg">
+                <a href="#about" class="block py-2 text-sm text-gray-600" onclick="toggleMobileMenu()">关于</a>
+                <a href="#capabilities" class="block py-2 text-sm text-gray-600" onclick="toggleMobileMenu()">能力</a>
+                <a href="#works" class="block py-2 text-sm text-gray-600" onclick="toggleMobileMenu()">案例</a>
+                <a href="#team" class="block py-2 text-sm text-gray-600" onclick="toggleMobileMenu()">团队</a>
+                <a href="#contact" class="block py-2 text-sm text-gray-600" onclick="toggleMobileMenu()">联系</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 bg-gradient-to-b from-[#e9f1f9] via-[#fdfcfb] to-white overflow-hidden">
+                <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-brand-primary/5 blur-[120px] pointer-events-none"></div>
+                <div class="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none"></div>
+                <div class="container mx-auto max-w-6xl text-center">
+                    <span class="reveal inline-block text-[11px] font-bold tracking-[0.4em] text-copper mb-8">BRAND × CREATIVE × AI</span>
+                    <h1 class="reveal stagger-1 font-serif-brand text-[clamp(60px,12vw,160px)] font-black tracking-tighter leading-tightest text-brand-primary mb-6">
+                        天空智策
+                    </h1>
+                    <div class="reveal stagger-2 flex flex-col items-center gap-8">
+                        <p class="max-w-xl text-lg md:text-xl font-light leading-relaxed text-gray-500">
+                            策略为根基，创意为表达，AI为加速器。<br class="hidden md:block">
+                            为品牌找到最聪明的增长路径。
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4 mt-4">
+                            <a href="#about" class="bg-brand-primary text-white px-10 py-5 rounded-full font-bold text-sm tracking-widest hover:bg-brand-text transition-all flex items-center gap-3 group">
+                                了解我们
+                                <iconify-icon icon="lucide:arrow-right" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                            </a>
+                            <button onclick="openVideoModal('hero')" class="px-10 py-5 rounded-full border border-brand-text/10 font-bold text-sm tracking-widest hover:bg-brand-surface transition-all">
+                                观看主视觉说明
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
+                    <span class="text-[9px] tracking-[0.5em] font-bold">SCROLL</span>
+                    <div class="w-px h-16 bg-brand-text"></div>
+                </div>
+            </section>
+
+            <section id="about" class="section-padding bg-[#f9fbff] overflow-hidden">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col lg:flex-row gap-20 lg:items-end mb-32">
+                        <div class="lg:w-2/3">
+                            <span class="text-copper font-bold text-xs tracking-widest mb-6 block uppercase">// About the Agency</span>
+                            <h2 class="reveal font-display text-4xl md:text-6xl font-black leading-tight tracking-tight mb-12">
+                                脱胎于十年影视沉淀，<br>
+                                进化为智能时代的品牌策略伙伴
+                            </h2>
+                            <div class="reveal stagger-1 grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-500 font-light text-lg leading-loose">
+                                <p>天空智策由<span class="text-brand-text font-medium">天空映画影业</span>核心团队发起，联合AI技术与品牌策略专家共同组建。我们相信：好的品牌传播，起于精准的策略洞察，落于高品质的创意执行。</p>
+                                <p>而AI技术的介入，让每一步都更高效、更可量化。我们提供完整的<span class="text-brand-text font-medium border-b border-copper">智能化品牌解决方案</span>，让策略意图在每个环节都不失真。</p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/3 reveal stagger-2">
+                            <div class="bg-brand-surface p-12 relative">
+                                <div class="absolute -top-10 -right-4 text-[120px] font-black text-brand-primary/5 select-none leading-none">10</div>
+                                <p class="text-sm text-gray-400 mb-2 font-bold tracking-widest">YEARS EXPERIENCE</p>
+                                <p class="text-4xl font-black text-brand-primary mb-0">影视行业深耕积累</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-brand-text/5 pt-12">
+                        <article class="flex items-start gap-8">
+                            <span class="font-display text-7xl font-black text-brand-text leading-none">300<small class="text-xl">+</small></span>
+                            <div class="pt-2">
+                                <h4 class="font-bold text-brand-text mb-1">TVC广告作品</h4>
+                                <p class="text-sm text-gray-400">十年间积累的各行各业品牌宣传片制作经验</p>
+                            </div>
+                        </article>
+                        <article class="flex items-start gap-8">
+                            <span class="font-display text-7xl font-black text-brand-text leading-none">40<small class="text-xl">+</small></span>
+                            <div class="pt-2">
+                                <h4 class="font-bold text-brand-text mb-1">服务头部客户</h4>
+                                <p class="text-sm text-gray-400">包括大型制造业、房地产、能源及政府机构</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="capabilities" class="section-padding bg-brand-surface">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col lg:flex-row gap-20">
+                        <div class="lg:w-1/3 lg:sticky lg:top-32 h-fit">
+                            <span class="text-copper font-bold text-xs tracking-widest mb-6 block uppercase">// Capabilities</span>
+                            <h2 class="font-display text-4xl md:text-5xl font-black leading-tight mb-8">
+                                三种能力，<br>一体化交付
+                            </h2>
+                            <p class="text-gray-500 mb-10 leading-relaxed">
+                                传统模式下，策略、创意、技术分属三家公司，信息在传递中不断衰减。天空智策将三种能力整合到一个团队。
+                            </p>
+                            <div class="p-8 bg-white border border-brand-text/5 rounded-2xl">
+                                <p class="text-xs text-gray-400 leading-relaxed">
+                                    我们不只是在传统团队里加了一个"AI模块"——AI思维贯穿工作的每一个环节：策略洞察用数据说话，创意生产用AI提效，效果验证用算法追踪。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:w-2/3 space-y-12">
+                            <article class="reveal group">
+                                <div class="flex flex-col md:flex-row gap-10 bg-white p-10 md:p-16 border border-brand-text/5 hover:border-brand-primary/20 transition-all rounded-3xl">
+                                    <div class="md:w-1/2">
+                                        <div class="text-copper mb-6">
+                                            <iconify-icon icon="lucide:target" class="text-5xl"></iconify-icon>
+                                        </div>
+                                        <h3 class="font-display text-2xl font-bold mb-2">品牌策略与创意</h3>
+                                        <p class="text-xs text-brand-primary font-bold tracking-[0.2em] mb-6 uppercase">Brand Strategy</p>
+                                        <ul class="space-y-3 text-gray-500 text-sm">
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 品牌诊断与定位</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 品牌人格化体系构建</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 年度品牌传播规划</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 内容策略与创意脚本</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 社媒营销策划</li>
+                                        </ul>
+                                    </div>
+                                    <div class="md:w-1/2 flex items-center justify-center bg-brand-surface rounded-2xl p-8">
+                                         <iconify-icon icon="lucide:sparkles" class="text-8xl text-brand-primary/10"></iconify-icon>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="reveal stagger-1 group">
+                                <div class="flex flex-col md:flex-row-reverse gap-10 bg-white p-10 md:p-16 border border-brand-text/5 hover:border-brand-primary/20 transition-all rounded-3xl">
+                                    <div class="md:w-1/2">
+                                        <div class="text-copper mb-6">
+                                            <iconify-icon icon="lucide:clapperboard" class="text-5xl"></iconify-icon>
+                                        </div>
+                                        <h3 class="font-display text-2xl font-bold mb-2">影视创意制作</h3>
+                                        <p class="text-xs text-brand-primary font-bold tracking-[0.2em] mb-6 uppercase">Creative Production</p>
+                                        <ul class="space-y-3 text-gray-500 text-sm">
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> TVC广告片/品牌宣传片</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 产品短视频体系</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 微电影与纪录片</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 三维动画与CG特效</li>
+                                        </ul>
+                                    </div>
+                                    <div class="md:w-1/2 flex items-center justify-center bg-brand-surface rounded-2xl p-8">
+                                         <iconify-icon icon="lucide:video" class="text-8xl text-brand-primary/10"></iconify-icon>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="reveal stagger-2 group">
+                                <div class="flex flex-col md:flex-row gap-10 bg-white p-10 md:p-16 border border-brand-text/5 hover:border-brand-primary/20 transition-all rounded-3xl">
+                                    <div class="md:w-1/2">
+                                        <div class="text-copper mb-6">
+                                            <iconify-icon icon="lucide:brain-circuit" class="text-5xl"></iconify-icon>
+                                        </div>
+                                        <h3 class="font-display text-2xl font-bold mb-2">AI技术赋能</h3>
+                                        <p class="text-xs text-brand-primary font-bold tracking-[0.2em] mb-6 uppercase">AI Technology</p>
+                                        <ul class="space-y-3 text-gray-500 text-sm">
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> AI数字人直播与虚拟IP</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> AI虚拟模特与产品展示</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> AI辅助内容生产</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 数据分析与消费者洞察</li>
+                                            <li class="flex items-center gap-3"><iconify-icon icon="lucide:check" class="text-copper"></iconify-icon> 企业AI应用咨询</li>
+                                        </ul>
+                                    </div>
+                                    <div class="md:w-1/2 flex items-center justify-center bg-brand-surface rounded-2xl p-8">
+                                         <iconify-icon icon="lucide:cpu" class="text-8xl text-brand-primary/10"></iconify-icon>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="works" class="section-padding bg-[#fafdff]">
+                <div class="container mx-auto px-6">
+                    <div class="flex justify-between items-end mb-20">
+                        <div>
+                            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Selected Works</span>
+                            <h2 class="font-display text-4xl md:text-5xl font-black">精选案例</h2>
+                        </div>
+                        <p class="max-w-xs text-sm text-gray-400 hidden md:block">
+                            以下案例来自团队十年间的代表性项目。每一个作品的背后，都是策略思考与创意执行的结合。
+                        </p>
+                    </div>
+
+                    <div class="magazine-grid">
+                        <div class="col-span-12 lg:col-span-8 mb-12">
+                            <button onclick="openVideoModal('featured')" class="group block w-full text-left">
+                                <div class="relative aspect-video bg-gray-100 mb-8 overflow-hidden">
+                                    <div class="absolute inset-0 bg-brand-primary/10 mix-blend-overlay"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                                        <div class="w-24 h-24 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-brand-primary shadow-xl">
+                                            <iconify-icon icon="lucide:play" class="text-4xl"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-full bg-gradient-to-br from-[#dbeafe] to-[#fff]"></div>
+                                </div>
+                                <div class="max-w-2xl">
+                                    <p class="text-xs font-bold text-copper tracking-widest mb-4">BRAND FILM · MANUFACTURING</p>
+                                    <h3 class="text-3xl font-black mb-4 group-hover:text-brand-primary transition-colors">磨具奏鸣曲 — 制造业的品牌美学</h3>
+                                    <p class="text-gray-500 font-light">用电影级镜头语言重新诠释工业之美。180秒影片，30天制作周期，让"制造"成为一种值得被讲述的故事。</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-4 mt-12">
+                            <div class="aspect-[4/5] bg-[#edf2f7] mb-6"></div>
+                            <p class="text-[10px] font-black text-copper tracking-[0.2em] mb-2 uppercase">TVC · REAL ESTATE</p>
+                            <h3 class="text-xl font-bold mb-3">普罗理想国 — 理想生活的影像表达</h3>
+                            <p class="text-sm text-gray-400 font-light line-clamp-2">6分钟品牌大片，以人物志形式探索"理想生活"的多元定义。</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:mt-32">
+                            <div class="aspect-[4/5] bg-[#f8fafc] mb-6"></div>
+                            <p class="text-[10px] font-black text-copper tracking-[0.2em] mb-2 uppercase">3D / CG · ENERGY</p>
+                            <h3 class="text-xl font-bold mb-3">国家电网 — 数字化审计平台视觉</h3>
+                            <p class="text-sm text-gray-400 font-light line-clamp-2">将复杂的数字化概念转化为可感知的视觉语言。</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-4 mt-12 md:-mt-20 lg:-mt-12">
+                            <div class="aspect-[4/5] bg-[#fdfcfb] mb-6"></div>
+                            <p class="text-[10px] font-black text-copper tracking-[0.2em] mb-2 uppercase">EMOTIONAL · JEWELRY</p>
+                            <h3 class="text-xl font-bold mb-3">梦祥银·陪伴篇 — 时间无尽头，陪伴有终点</h3>
+                            <p class="text-sm text-gray-400 font-light line-clamp-2">4分钟情感品牌片，7天极速制作交付。以"陪伴"为核心洞察，为珠宝品牌注入温度。</p>
+                        </div>
+
+                        <div class="col-span-12 md:col-span-6 lg:col-span-4 mt-12 md:-mt-20 lg:mt-0">
+                            <div class="aspect-[4/5] bg-[#fdfcfb] mb-6"></div>
+                            <p class="text-[10px] font-black text-copper tracking-[0.2em] mb-2 uppercase">CAMPAIGN · SOCIAL</p>
+                            <h3 class="text-xl font-bold mb-3">美的冰箱 #万物皆可微晶 — 3.2亿曝光</h3>
+                            <p class="text-sm text-gray-400 font-light line-clamp-2">策划抖音挑战赛，全网曝光超3.2亿次。从创意策略到内容执行的全链路操盘。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="team" class="section-padding bg-[#f0f6fc]/40">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-24">
+                        <div class="max-w-xl">
+                            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Key Members</span>
+                            <h2 class="font-display text-4xl md:text-5xl font-black mb-6">核心团队</h2>
+                            <p class="text-gray-500 font-light">来自不同领域的资深专家，共同构成天空智策的核心引擎。</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-16">
+                        <article class="reveal group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/dong-shengzhen.jpg" alt="董圣振" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">董圣振</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">制片人 · 联合创始人</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">十年影视制片经验，带领团队为国家电网、华润燃气等40+企业制作超300部TVC广告与宣传片。</p>
+                        </article>
+
+                        <article class="reveal stagger-1 group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/qiu-zexi.jpg" alt="邱泽西" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">邱泽西</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">导演</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">电影《山雨欲来》获金熊猫奖提名，《且听风吟》获亚洲国际微电影节优秀作品奖。</p>
+                        </article>
+
+                        <article class="reveal stagger-2 group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/wu-yue.jpg" alt="吴越" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">吴越</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">策划经理</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">澳大利亚QUT创意产业学士。主策美的冰箱#万物皆可微晶#全网曝光超3.2亿。</p>
+                        </article>
+
+                        <article class="reveal stagger-3 group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/liu-zhenxing.jpg" alt="刘振行" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">刘振行</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">摄影指导</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">合作冯小刚、杜可风等。《地下香》获第72届威尼斯国际电影节最佳影片。</p>
+                        </article>
+
+                        <article class="reveal group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/yu-mengfei.jpg" alt="禹梦霏" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">禹梦霏</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">资深策划 · 联合导演</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">8年导演经验，300+案例。电影《消失的房客》爱奇艺同时段Top3。</p>
+                        </article>
+
+                        <article class="reveal stagger-1 group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/jin-lei.jpg" alt="金雷" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">金雷</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">视效总监</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">CG艺术家，B站「万人书」45万+粉丝。世界渲染大赛Top100。</p>
+                        </article>
+
+                        <article class="reveal stagger-2 group text-center">
+                            <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden bg-gray-100">
+                                <img src="./media/images/team/ren-xin.jpg" alt="任新" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h3 class="text-lg font-black mb-1">任新</h3>
+                            <p class="text-[11px] text-copper font-bold tracking-widest mb-3 uppercase">AI策略总监</p>
+                            <p class="text-xs text-gray-400 font-light leading-relaxed">资深AI应用专家，专注AI技术在品牌营销领域的落地实践。</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section-padding bg-gradient-to-b from-[#fafdff] to-white">
+                <div class="container mx-auto px-6 text-center">
+                    <span class="text-copper font-bold text-xs tracking-widest mb-12 block uppercase">// Let's Connect</span>
+                    <h2 class="font-serif-brand text-4xl md:text-7xl font-black leading-tight mb-12">
+                        开始对话<br>
+                        与更聪明的增长相遇
+                    </h2>
+                    <p class="max-w-2xl mx-auto text-gray-500 font-light text-lg mb-20">
+                        无论您需要品牌策略咨询、影视创意制作，还是AI技术赋能，我们期待与您的每一次交流。
+                    </p>
+                    <a href="mailto:contact@skystratech.com" class="font-serif-brand text-2xl md:text-5xl font-black text-brand-primary border-b-2 border-copper pb-4 hover:text-brand-accent transition-all">
+                        contact@skystratech.com
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-20 bg-brand-surface border-t border-brand-text/5">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="flex flex-col gap-2">
+                    <span class="font-serif-brand font-black text-lg tracking-tighter leading-none">天空智策</span>
+                    <span class="font-display text-[9px] tracking-[0.3em] text-gray-400">© 2026 SKY STRATECH · ZHENGZHOU</span>
+                </div>
+                <div class="flex gap-8 text-[11px] font-bold tracking-widest text-gray-500">
+                    <a href="#" class="hover:text-brand-primary">WECHAT</a>
+                    <a href="#" class="hover:text-brand-primary">BEHANCE</a>
+                    <a href="#" class="hover:text-brand-primary">DOUYIN</a>
+                </div>
+            </div>
+        </footer>
+
+        <div id="video-modal" class="fixed inset-0 z-[100] video-modal opacity-0 pointer-events-none">
+            <div class="absolute inset-0 bg-brand-text/90 backdrop-blur-xl" onclick="closeVideoModal()"></div>
+            <div class="absolute inset-6 md:inset-20 flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-white font-display font-black text-2xl"></h3>
+                    <button onclick="closeVideoModal()" class="text-white/50 hover:text-white transition-colors">
+                        <iconify-icon icon="lucide:x" class="text-4xl"></iconify-icon>
+                    </button>
+                </div>
+                <div class="flex-1 bg-black rounded-3xl overflow-hidden shadow-2xl relative">
+                    <div id="video-placeholder" class="absolute inset-0 flex items-center justify-center text-white/20 p-12 text-center">
+                        <div>
+                             <iconify-icon icon="lucide:video" class="text-6xl mb-4"></iconify-icon>
+                             <p>请在此路径部署视频文件：</p>
+                             <code id="video-path" class="text-brand-accent mt-2 block"></code>
+                        </div>
+                    </div>
+                    <video id="modal-video" class="w-full h-full object-contain hidden" controls></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const observerOptions = { root: null, threshold: 0.1, rootMargin: "0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-brand-text/5');
+            } else {
+                header.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-brand-text/5');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('modal-video');
+        const placeholder = document.getElementById('video-placeholder');
+        const titleEl = document.getElementById('modal-title');
+        const pathEl = document.getElementById('video-path');
+
+        const mediaMap = {
+            hero: { title: '主视觉视频', path: './media/videos/hero/hero-reel.mp4' },
+            featured: { title: '磨具奏鸣曲 — 案例精选', path: './media/videos/cases/featured-case.mp4' }
+        };
+
+        function openVideoModal(key) {
+            const media = mediaMap[key];
+            if (!media) return;
+            titleEl.textContent = media.title;
+            pathEl.textContent = media.path;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+            fetch(media.path, { method: 'HEAD' })
+                .then(res => {
+                    if (res.ok) {
+                        video.src = media.path;
+                        video.classList.remove('hidden');
+                        placeholder.classList.add('hidden');
+                        video.play();
+                    }
+                })
+                .catch(() => {
+                    video.classList.add('hidden');
+                    placeholder.classList.remove('hidden');
+                });
+        }
+
+        function closeVideoModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+            video.pause();
+            video.src = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideoModal();
+        });
+    </script>
+</body>
+</html>
