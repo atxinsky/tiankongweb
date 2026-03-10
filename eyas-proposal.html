@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYAS男装线 · 品牌定位与增长策略提案 | 天空智策</title>
+    <meta name="description" content="EYAS男装线品牌定位与增长策略提案 — 从第一性原理出发，重新定义男裤购买逻辑">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { primary: '#2e6ab0', accent: '#c4956a', text: '#1a1a2e', surface: '#f7f9fc' },
+                        copper: '#c4956a',
+                        eyas: { dark: '#1a1a2e', blue: '#2e6ab0', warm: '#c4956a', light: '#f7f9fc', mint: '#e8f5e9' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --brand-primary: #2e6ab0;
+            --brand-accent: #c4956a;
+            --brand-text: #1a1a2e;
+            --brand-surface: #f7f9fc;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--brand-text);
+            background: #fff;
+            overflow-x: hidden;
+        }
+        .font-serif-brand { font-family: 'Noto Serif SC', serif; letter-spacing: -0.05em; }
+        .font-display { font-family: 'Sora', 'Noto Sans SC', sans-serif; }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-accent); border-radius: 3px; }
+
+        /* Progress bar */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+            background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+            transition: width 0.1s;
+        }
+
+        /* Floating nav */
+        .toc-link { transition: all 0.3s; }
+        .toc-link.active { color: var(--brand-accent); font-weight: 700; }
+        .toc-link:hover { color: var(--brand-primary); }
+
+        /* Cards */
+        .insight-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+            border: 1px solid rgba(46, 106, 176, 0.08);
+        }
+        .insight-card:hover { border-color: var(--brand-accent); box-shadow: 0 8px 40px rgba(196, 149, 106, 0.1); }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Table styles */
+        .proposal-table { border-collapse: separate; border-spacing: 0; }
+        .proposal-table th { background: var(--brand-text); color: #fff; }
+        .proposal-table td { border-bottom: 1px solid #eef2f7; }
+        .proposal-table tr:hover td { background: #f8fafc; }
+
+        /* Timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--brand-accent);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--brand-accent);
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+        }
+
+        /* Print styles */
+        @media print {
+            .no-print { display: none !important; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Badge pulse */
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(196, 149, 106, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(196, 149, 106, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(196, 149, 106, 0); }
+        }
+        .pulse-badge { animation: pulse-ring 2s infinite; }
+
+        /* Stat number animation placeholder */
+        .stat-number { font-variant-numeric: tabular-nums; }
+    </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar" class="no-print" style="width: 0%"></div>
+
+<!-- Back to main site -->
+<a href="./index.html" class="no-print fixed top-6 left-6 z-50 flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-brand-primary transition-all bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+    <iconify-icon icon="lucide:arrow-left" class="text-base"></iconify-icon>
+    返回天空智策
+</a>
+
+<!-- Floating TOC (desktop) -->
+<nav id="floating-toc" class="no-print hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
+    <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-gray-100 shadow-lg p-4 text-[11px] space-y-3 max-w-[140px]">
+        <a href="#cover" class="toc-link block text-gray-400 truncate">封面</a>
+        <a href="#summary" class="toc-link block text-gray-400 truncate">执行摘要</a>
+        <a href="#ch1" class="toc-link block text-gray-400 truncate">一·第一性原理</a>
+        <a href="#ch2" class="toc-link block text-gray-400 truncate">二·定位路线评估</a>
+        <a href="#ch3" class="toc-link block text-gray-400 truncate">三·定位落地</a>
+        <a href="#ch4" class="toc-link block text-gray-400 truncate">四·内容与渠道</a>
+        <a href="#ch5" class="toc-link block text-gray-400 truncate">五·AI赋能</a>
+        <a href="#ch6" class="toc-link block text-gray-400 truncate">六·90天实验</a>
+        <a href="#ch7" class="toc-link block text-gray-400 truncate">七·风险提示</a>
+    </div>
+</nav>
+
+<!-- ==================== COVER ==================== -->
+<section id="cover" class="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+    <!-- Background decorations -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#1b2838] to-[#1a1a2e]"></div>
+    <div class="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-primary/10 blur-[150px]"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-copper/10 blur-[120px]"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+        <div class="reveal mb-8">
+            <span class="inline-block text-[10px] font-bold tracking-[0.5em] text-copper/80 uppercase mb-2">Brand Strategy Proposal</span>
+            <div class="w-20 h-[1px] bg-copper/40 mx-auto"></div>
+        </div>
+
+        <h1 class="reveal stagger-1 font-serif-brand text-white text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-4">
+            <span class="block text-copper">EYAS</span>
+            <span class="block text-3xl md:text-5xl lg:text-6xl mt-2 text-white/90">男装线</span>
+        </h1>
+
+        <p class="reveal stagger-2 text-xl md:text-2xl text-white/60 font-light mt-8 mb-4">
+            品牌定位与增长策略提案
+        </p>
+        <p class="reveal stagger-3 text-sm text-white/30 font-light max-w-lg mx-auto leading-relaxed">
+            从第一性原理出发，重新定义男裤购买逻辑
+        </p>
+
+        <div class="reveal stagger-4 mt-16 flex flex-col md:flex-row items-center justify-center gap-8 text-xs text-white/30">
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:building-2" class="text-copper/60"></iconify-icon>
+                <span>呈递方：<strong class="text-white/50">天空智策</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:send" class="text-copper/60"></iconify-icon>
+                <span>呈递对象：<strong class="text-white/50">郑州云顶服饰（逸阳ESEY）</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:calendar" class="text-copper/60"></iconify-icon>
+                <span>2026年3月</span>
+            </div>
+        </div>
+
+        <div class="reveal stagger-4 mt-6">
+            <span class="inline-flex items-center gap-2 text-[10px] text-red-400/60 tracking-widest">
+                <iconify-icon icon="lucide:lock" class="text-xs"></iconify-icon>
+                机密文件 · 仅供内部评审
+            </span>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="reveal stagger-4 mt-20 animate-bounce">
+            <iconify-icon icon="lucide:chevrons-down" class="text-2xl text-white/20"></iconify-icon>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== EXECUTIVE SUMMARY ==================== -->
+<section id="summary" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Executive Summary</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black">执行摘要</h2>
+        </div>
+
+        <div class="reveal stagger-1 text-lg text-gray-600 font-light leading-relaxed space-y-6">
+            <p>本提案以<strong class="text-brand-text font-medium">第一性原理</strong>为方法论基础，从男性消费者购买裤装的底层行为逻辑出发，重新审视 EYAS（逸阳男装）的品牌定位、产品策略与增长路径。</p>
+            <p>我们不预设"应该对标谁"或"应该走什么风格"，而是先回答一个更根本的问题：<em class="text-brand-primary not-italic font-medium">中国男性在什么场景下、因为什么原因、以什么方式买一条裤子？</em></p>
+        </div>
+
+        <!-- Core Judgment Card -->
+        <div class="reveal stagger-2 mt-16 bg-gradient-to-br from-[#0d1b2a] to-[#1a1a2e] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-copper/10 rounded-full blur-[80px]"></div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-copper/20 rounded-xl flex items-center justify-center">
+                        <iconify-icon icon="lucide:lightbulb" class="text-copper text-xl"></iconify-icon>
+                    </div>
+                    <span class="text-xs font-bold text-copper tracking-widest uppercase">核心判断</span>
+                </div>
+                <p class="text-lg md:text-xl font-light leading-relaxed text-white/80">
+                    EYAS 当前阶段<strong class="text-white">不应</strong>试图在品牌心智层面与九牧王、GXG 或优衣库正面竞争，而应从<strong class="text-copper">"男性裤装复购效率"</strong>这一被行业忽视的维度切入。
+                </p>
+            </div>
+        </div>
+
+        <!-- Brand Promise -->
+        <div class="reveal stagger-3 mt-12 text-center py-12 border-y border-gray-100">
+            <p class="text-sm text-gray-400 mb-4">品牌核心主张</p>
+            <p class="font-serif-brand text-3xl md:text-4xl font-black gradient-text">
+                男人的裤子，不必费心思
+            </p>
+            <p class="text-gray-400 mt-4 text-sm">——我们替你想好了。</p>
+        </div>
+
+        <!-- Three pillars -->
+        <div class="reveal stagger-4 mt-16 grid md:grid-cols-3 gap-6">
+            <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:package" class="text-brand-primary text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold mb-2">产品力</h3>
+                <p class="text-sm text-gray-500 font-light">依托逸阳二十年版型工程与面料技术能力，打造确定性产品体验</p>
+            </div>
+            <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:zap" class="text-copper text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold mb-2">运营效率</h3>
+                <p class="text-sm text-gray-500 font-light">AI在内容生产、数字人直播、用户数据运营等环节的效率倍增</p>
+            </div>
+            <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:refresh-cw" class="text-green-600 text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold mb-2">数据闭环</h3>
+                <p class="text-sm text-gray-500 font-light">形成"产品力 × 运营效率 × 数据闭环"三位一体的竞争结构</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 1: FIRST PRINCIPLES ==================== -->
+<section id="ch1" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 01</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                回到第一性原理<br>
+                <span class="text-brand-primary">男性为什么买裤子？</span>
+            </h2>
+        </div>
+
+        <div class="reveal stagger-1 text-gray-600 font-light leading-relaxed space-y-4 mb-16">
+            <p>在讨论"EYAS应该怎么定位"之前，必须先搞清楚一个更基础的问题：<strong class="text-brand-text font-medium">男性消费者购买裤装的决策逻辑是什么？</strong></p>
+            <p>这个问题的答案，直接决定了品牌定位的有效性——如果定位不对应真实的购买动机，再精美的品牌故事也不会转化为销售。</p>
+        </div>
+
+        <!-- Male vs Female comparison -->
+        <div class="reveal stagger-2 mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.1</span>
+                男性与女性的裤装消费本质不同
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-pink-50/50 rounded-2xl p-8 border border-pink-100/50">
+                    <div class="flex items-center gap-3 mb-4">
+                        <iconify-icon icon="lucide:plus-circle" class="text-pink-400 text-2xl"></iconify-icon>
+                        <h4 class="font-bold text-pink-800">女性 = 加法过程</h4>
+                    </div>
+                    <p class="text-sm text-pink-700/70 font-light leading-relaxed">显瘦、提臀、拉长腿型、搭配好看——她们在不断叠加"我想要"的属性。越多越好，不断追加新的需求。</p>
+                </div>
+                <div class="bg-blue-50/50 rounded-2xl p-8 border border-blue-100/50">
+                    <div class="flex items-center gap-3 mb-4">
+                        <iconify-icon icon="lucide:minus-circle" class="text-brand-primary text-2xl"></iconify-icon>
+                        <h4 class="font-bold text-blue-800">男性 = 减法过程</h4>
+                    </div>
+                    <p class="text-sm text-blue-700/70 font-light leading-relaxed">他们不是在寻找"最好的裤子"，而是在排除"最烦的麻烦"。成家后更是一个"减法"——找到能用的就行。</p>
+                </div>
+            </div>
+            <div class="mt-6 bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                <p class="text-sm text-amber-800 font-medium flex items-start gap-3">
+                    <iconify-icon icon="lucide:key" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                    <span>男裤品牌的竞争对手不是"另一个品牌"，而是<strong>"男性对买裤子这件事的抵触情绪"</strong>本身。谁能把这个过程的摩擦降到最低，谁就赢了。</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Four Purchase Scenarios -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.2</span>
+                四类核心购买场景
+            </h3>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+                <!-- Scene 1 -->
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-brand-primary text-white text-[10px] font-bold px-3 py-1 rounded-full">~60%</div>
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:repeat" class="text-brand-primary text-xl"></iconify-icon>
+                    </div>
+                    <h4 class="font-bold mb-2">替换型购买</h4>
+                    <p class="text-xs text-gray-400 mb-3">旧裤穿坏 / 不合身 / 季节切换</p>
+                    <p class="text-sm text-gray-500 font-light">"找和上一条差不多的，别太贵，买了就走"</p>
+                </div>
+                <!-- Scene 2 -->
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-copper text-white text-[10px] font-bold px-3 py-1 rounded-full">~20%</div>
+                    <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:shopping-bag" class="text-copper text-xl"></iconify-icon>
+                    </div>
+                    <h4 class="font-bold mb-2">代购型购买</h4>
+                    <p class="text-xs text-gray-400 mb-3">妻子 / 母亲 / 女友代为购买</p>
+                    <p class="text-sm text-gray-500 font-light">女性决策：信任背书 + 评价 + 价格</p>
+                </div>
+                <!-- Scene 3 -->
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-gray-700 text-white text-[10px] font-bold px-3 py-1 rounded-full">~10%</div>
+                    <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:trending-up" class="text-gray-600 text-xl"></iconify-icon>
+                    </div>
+                    <h4 class="font-bold mb-2">升级型购买</h4>
+                    <p class="text-xs text-gray-400 mb-3">换工作 / 升职 / 重要场合</p>
+                    <p class="text-sm text-gray-500 font-light">愿意花时间选，追求体面感与可信度</p>
+                </div>
+                <!-- Scene 4 -->
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full">~10%</div>
+                    <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:zap" class="text-red-500 text-xl"></iconify-icon>
+                    </div>
+                    <h4 class="font-bold mb-2">冲动型购买</h4>
+                    <p class="text-xs text-gray-400 mb-3">刷抖音被内容触发</p>
+                    <p class="text-sm text-gray-500 font-light">决策极短（秒级），价格敏感，退货率高</p>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-gradient-to-r from-brand-primary/5 to-copper/5 rounded-2xl p-6 border border-brand-primary/10">
+                <p class="text-sm font-medium flex items-start gap-3">
+                    <iconify-icon icon="lucide:alert-circle" class="text-brand-primary text-lg mt-0.5 shrink-0"></iconify-icon>
+                    <span><strong>关键洞察：</strong>替换型购买占据了绝对主力份额（60%），但几乎所有男裤品牌的营销投入都集中在升级型和冲动型场景上。"沉默的大多数"——那些只想快速买到一条靠谱裤子的男性——长期被品牌忽视。</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Real Competitors -->
+        <div class="reveal mb-8">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.3</span>
+                每个场景的真实竞争对手
+            </h3>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50">
+                    <div class="w-8 h-8 bg-brand-primary/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <iconify-icon icon="lucide:repeat" class="text-brand-primary"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">替换型场景</h4>
+                        <p class="text-sm text-gray-500 font-light">对手不是九牧王也不是GXG，而是"消费者上一次买的那个品牌"——大概率是优衣库、海澜之家、或某个记不住名字的白牌。核心竞争力是<strong class="text-brand-text">产品体验的确定性</strong>。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50">
+                    <div class="w-8 h-8 bg-copper/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <iconify-icon icon="lucide:shopping-bag" class="text-copper"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">代购型场景</h4>
+                        <p class="text-sm text-gray-500 font-light">天然优势是逸阳女裤的消费者基础——"这个牌子我自己穿过，质量不错"是最强的信任传递路径。但此路线的<strong class="text-brand-text">天花板很低</strong>。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50">
+                    <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <iconify-icon icon="lucide:trending-up" class="text-gray-600"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">升级型 & 冲动型场景</h4>
+                        <p class="text-sm text-gray-500 font-light">升级型已被九牧王（300-800元商务线）和GXG（300-600元通勤线）占位；冲动型是所有投流品牌和白牌的绞杀战场，品牌定位权重最低。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 2: STRATEGIC EVALUATION ==================== -->
+<section id="ch2" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 02</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                四条定位路线的<br>
+                <span class="text-brand-primary">战略评估</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">我们不回避每条路线的硬伤——因为甲方需要的是能经受追问的策略，而不是只讲优点的PPT。</p>
+        </div>
+
+        <!-- Route A -->
+        <div class="reveal mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center font-display font-black text-gray-400">A</span>
+                    <div>
+                        <h3 class="font-bold text-lg">男裤专家（九牧王对标）</h3>
+                        <span class="text-xs text-gray-400">价格带 199-499元 · 目标：替换+升级</span>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <p class="text-green-600 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:check"></iconify-icon> 优势</p>
+                        <p class="text-gray-500 font-light">与逸阳核心资产自洽，有企业标准领跑者资质、200+专利等硬性背书。甲方决策层接受度高。</p>
+                    </div>
+                    <div>
+                        <p class="text-red-500 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:x"></iconify-icon> 硬伤</p>
+                        <p class="text-gray-500 font-light">九牧王蹲了二十余年（虽2025Q1营收同比-4.76%），但"男裤专家"定位在当下已不足以驱动增长。男性消费者不会因为"你是专家"就掏钱。</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-gray-600"><strong>结论：</strong>"裤装专家"可作为底层信任背书，但不应作为消费者感知层面的定位语言。<span class="text-copper font-bold">它是地基，不是招牌。</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route B -->
+        <div class="reveal mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center font-display font-black text-gray-400">B</span>
+                    <div>
+                        <h3 class="font-bold text-lg">零压通勤（GXG对标）</h3>
+                        <span class="text-xs text-gray-400">价格带 299-599元 · 目标：升级型子集</span>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <p class="text-green-600 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:check"></iconify-icon> 优势</p>
+                        <p class="text-gray-500 font-light">定位锐利、场景明确。GXG的"4楼半理论"已验证有效性——2024上半年逆势增长6.2%。</p>
+                    </div>
+                    <div>
+                        <p class="text-red-500 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:x"></iconify-icon> 硬伤</p>
+                        <p class="text-gray-500 font-light">GXG的成功依赖大量时尚公关手段。EYAS 12.9万粉丝的账号、"妈妈裤"的心智包袱，短期内无法复制这一路径。</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-gray-600"><strong>结论：</strong>"通勤"可作为内容叙事角度，但不宜作为品牌唯一定位——<span class="text-copper font-bold">它把场景锁得太窄</span>。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route C -->
+        <div class="reveal mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center font-display font-black text-gray-400">C</span>
+                    <div>
+                        <h3 class="font-bold text-lg">科技基础款（优衣库对标）</h3>
+                        <span class="text-xs text-gray-400">价格带 129-299元 · 目标：冲动+替换</span>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <p class="text-green-600 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:check"></iconify-icon> 优势</p>
+                        <p class="text-gray-500 font-light">有面料技术基础、供应链成本可控、"功能演示"类内容在抖音天然有传播力。</p>
+                    </div>
+                    <div>
+                        <p class="text-red-500 font-bold text-xs mb-2 flex items-center gap-1"><iconify-icon icon="lucide:x"></iconify-icon> 硬伤</p>
+                        <p class="text-gray-500 font-light">直面优衣库全球规模经济和产业带白牌的双重绞杀。纯拼性价比，利润薄到可能无法持续。</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-gray-600"><strong>结论：</strong>科技面料是产品层面必须做的事，但不应作为品牌定位——<span class="text-copper font-bold">"面料好"只是入场券</span>。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route D (Recommended) -->
+        <div class="reveal mb-10">
+            <div class="bg-gradient-to-br from-[#0d1b2a] to-[#1a1a2e] rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-60 h-60 bg-copper/10 rounded-full blur-[100px]"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-primary/10 rounded-full blur-[80px]"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="w-10 h-10 bg-copper rounded-xl flex items-center justify-center font-display font-black text-white pulse-badge">D</span>
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <h3 class="font-bold text-lg">复购效率驱动</h3>
+                                <span class="bg-copper/20 text-copper text-[10px] font-bold px-3 py-1 rounded-full">推荐方向</span>
+                            </div>
+                            <span class="text-xs text-white/40">价格带 149-299元 · 目标：替换+代购</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 text-white/70 font-light leading-relaxed space-y-3">
+                        <p>不从"品牌定位"出发，而从<strong class="text-copper">"购买行为闭环"</strong>出发：解决一个所有品牌都在忽视的结构性痛点——<strong class="text-white">男性每次买裤子都要重新选择</strong>。</p>
+                    </div>
+
+                    <div class="bg-white/5 rounded-2xl p-6 mb-8 border border-white/10">
+                        <p class="text-sm text-copper font-bold mb-3">品牌承诺</p>
+                        <p class="font-serif-brand text-xl md:text-2xl font-black text-white">"买了这几条，裤子这件事你就再也不用想了。"</p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <p class="text-copper font-bold text-xs mb-2">产品体验</p>
+                            <p class="text-white/60 font-light">耐穿、百搭、免打理、场景通吃的确定性</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <p class="text-copper font-bold text-xs mb-2">购买体验</p>
+                            <p class="text-white/60 font-light">买一次就知道自己的码，复购零决策成本</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4">
+                            <p class="text-copper font-bold text-xs mb-2">品牌关系</p>
+                            <p class="text-white/60 font-light">不需要你喜欢我，只需要用了后离不开我</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="reveal mt-16">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">2.5</span>
+                四条路线综合对比
+            </h3>
+            <div class="overflow-x-auto -mx-6 px-6">
+                <table class="proposal-table w-full text-sm rounded-xl overflow-hidden min-w-[700px]">
+                    <thead>
+                        <tr>
+                            <th class="text-left p-4 font-bold text-xs tracking-wider rounded-tl-xl">评估维度</th>
+                            <th class="p-4 text-xs">A 男裤专家</th>
+                            <th class="p-4 text-xs">B 零压通勤</th>
+                            <th class="p-4 text-xs">C 科技基础款</th>
+                            <th class="p-4 text-xs rounded-tr-xl bg-copper">D 复购效率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-4 font-medium">核心假设</td><td class="p-4 text-center text-gray-500">品类心智平移</td><td class="p-4 text-center text-gray-500">占位通勤场景</td><td class="p-4 text-center text-gray-500">面料技术降维</td><td class="p-4 text-center font-medium bg-copper/5">解决重复决策成本</td></tr>
+                        <tr><td class="p-4 font-medium">价格带</td><td class="p-4 text-center text-gray-500">199-499</td><td class="p-4 text-center text-gray-500">299-599</td><td class="p-4 text-center text-gray-500">129-299</td><td class="p-4 text-center font-medium bg-copper/5">149-299</td></tr>
+                        <tr><td class="p-4 font-medium">主要对手</td><td class="p-4 text-center text-gray-500">九牧王(衰退)</td><td class="p-4 text-center text-gray-500">GXG(已占位)</td><td class="p-4 text-center text-gray-500">优衣库+白牌</td><td class="p-4 text-center font-medium bg-copper/5">消费者惰性</td></tr>
+                        <tr><td class="p-4 font-medium">资源投入</td><td class="p-4 text-center text-gray-500">高</td><td class="p-4 text-center text-gray-500">极高</td><td class="p-4 text-center text-gray-500">低(利润薄)</td><td class="p-4 text-center font-medium bg-copper/5">中(产品+运营)</td></tr>
+                        <tr><td class="p-4 font-medium">壁垒类型</td><td class="p-4 text-center text-gray-500">品牌心智</td><td class="p-4 text-center text-gray-500">品牌势能</td><td class="p-4 text-center text-gray-500">供应链效率</td><td class="p-4 text-center font-medium bg-copper/5">复购留存率</td></tr>
+                        <tr><td class="p-4 font-medium">增长曲线</td><td class="p-4 text-center text-gray-500">慢且不确定</td><td class="p-4 text-center text-gray-500">慢且重投入</td><td class="p-4 text-center text-gray-500">快启动低天花板</td><td class="p-4 text-center font-medium bg-copper/5">慢启动后加速</td></tr>
+                        <tr><td class="p-4 font-medium rounded-bl-xl">推荐程度</td><td class="p-4 text-center text-gray-400">底层背书</td><td class="p-4 text-center text-gray-400">内容角度</td><td class="p-4 text-center text-gray-400">产品能力</td><td class="p-4 text-center rounded-br-xl bg-copper/10 text-copper font-black">核心策略</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 3: POSITIONING EXECUTION ==================== -->
+<section id="ch3" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 03</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                定位落地<br>
+                <span class="text-brand-primary">从"不必费心思"到产品矩阵</span>
+            </h2>
+        </div>
+
+        <!-- Three-layer expression -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">3.1</span>
+                品牌定位的三层表达结构
+            </h3>
+            <div class="space-y-4">
+                <div class="bg-gray-900 text-white rounded-2xl p-6 flex items-start gap-5">
+                    <div class="text-3xl font-display font-black text-white/20 shrink-0">01</div>
+                    <div>
+                        <p class="text-copper text-xs font-bold tracking-widest mb-2">底层：信任基座</p>
+                        <p class="font-bold text-lg mb-1">裤装专家 · 逸阳同源工艺</p>
+                        <p class="text-white/50 text-sm font-light">"这是做了20年裤子的厂家"</p>
+                    </div>
+                </div>
+                <div class="bg-brand-primary text-white rounded-2xl p-6 flex items-start gap-5">
+                    <div class="text-3xl font-display font-black text-white/20 shrink-0">02</div>
+                    <div>
+                        <p class="text-white/60 text-xs font-bold tracking-widest mb-2">中层：品牌承诺</p>
+                        <p class="font-bold text-lg mb-1">替你把裤子这件事想好了</p>
+                        <p class="text-white/50 text-sm font-light">"买了就不用再操心"</p>
+                    </div>
+                </div>
+                <div class="bg-copper text-white rounded-2xl p-6 flex items-start gap-5">
+                    <div class="text-3xl font-display font-black text-white/20 shrink-0">03</div>
+                    <div>
+                        <p class="text-white/60 text-xs font-bold tracking-widest mb-2">表层：传播语言</p>
+                        <p class="font-bold text-lg mb-1">男人的裤子，不必费心思</p>
+                        <p class="text-white/50 text-sm font-light">"省事、靠谱、直接买"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Four selling points -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">3.2</span>
+                "省事儿"的四个可感知卖点
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100/50">
+                    <iconify-icon icon="lucide:shield-check" class="text-3xl text-brand-primary mb-4"></iconify-icon>
+                    <h4 class="font-bold text-lg mb-2">耐穿</h4>
+                    <p class="text-xs text-copper font-bold mb-3">"买了不用频繁换"</p>
+                    <p class="text-sm text-gray-500 font-light">洗涤50次后版型保持率、膝盖弹性回复测试、面料起球等级——用数据说话，而不是形容词。</p>
+                </div>
+                <div class="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-8 border border-amber-100/50">
+                    <iconify-icon icon="lucide:layers" class="text-3xl text-copper mb-4"></iconify-icon>
+                    <h4 class="font-bold text-lg mb-2">多功能</h4>
+                    <p class="text-xs text-copper font-bold mb-3">"一条裤子管一周"</p>
+                    <p class="text-sm text-gray-500 font-light">覆盖"从办公室到下班后"：开会、接孩子、周末逛街。不承诺打球或爬山——锁定甜蜜区。</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100/50">
+                    <iconify-icon icon="lucide:check-circle" class="text-3xl text-green-600 mb-4"></iconify-icon>
+                    <h4 class="font-bold text-lg mb-2">好用</h4>
+                    <p class="text-xs text-copper font-bold mb-3">"穿上就走，不用伺候"</p>
+                    <p class="text-sm text-gray-500 font-light">不用熨烫、不用特殊洗涤、不用搭配——抗皱免烫、黑灰藏青主色、简洁设计语言。</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border border-purple-100/50">
+                    <iconify-icon icon="lucide:refresh-cw" class="text-3xl text-purple-600 mb-4"></iconify-icon>
+                    <h4 class="font-bold text-lg mb-2">省事儿</h4>
+                    <p class="text-xs text-copper font-bold mb-3">"复购不用重新选"</p>
+                    <p class="text-sm text-gray-500 font-light">记住尺码、推荐同系列、一键续买——这是路线D的核心壁垒，也是AI发挥最大杠杆的环节。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three product lines -->
+        <div class="reveal">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">3.3</span>
+                三条产品线：不挑场合 · 不用打理 · 不纠结
+            </h3>
+            <div class="space-y-5">
+                <div class="bg-brand-primary text-white rounded-2xl p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full">主力线</span>
+                        <h4 class="font-bold text-lg">不挑场合</h4>
+                    </div>
+                    <p class="text-white/60 text-sm font-light mb-4">一条裤子管全天 · 弹力商务休闲裤 · 开会→接孩子→周末逛街</p>
+                    <span class="text-copper font-bold text-sm">179-249元</span>
+                </div>
+                <div class="bg-gray-900 text-white rounded-2xl p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-white/10 text-white/60 text-[10px] font-bold px-3 py-1 rounded-full">差异化线</span>
+                        <h4 class="font-bold text-lg">不用打理</h4>
+                    </div>
+                    <p class="text-white/60 text-sm font-light mb-4">洗了就穿·不用熨 · 免烫抗皱西裤(液氨/纳米工艺) · 出差三天一条搞定</p>
+                    <span class="text-copper font-bold text-sm">199-269元</span>
+                </div>
+                <div class="bg-gray-100 rounded-2xl p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-copper/10 text-copper text-[10px] font-bold px-3 py-1 rounded-full">入口线</span>
+                        <h4 class="font-bold text-lg">不纠结</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm font-light mb-4">闭眼买·不踩雷 · 经典基础款三色装（黑灰藏青）· 不知道穿什么就选它</p>
+                    <span class="text-copper font-bold text-sm">149-199元/条</span>
+                </div>
+            </div>
+            <div class="mt-8 bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                <p class="text-sm text-amber-800 font-medium flex items-start gap-3">
+                    <iconify-icon icon="lucide:target" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                    <span><strong>产品策略核心原则：</strong>不做全品类男装，先把"男裤=EYAS"的等号打牢。从3-5条英雄裤开始，不贪多、不贪全。</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 4: CONTENT & CHANNEL ==================== -->
+<section id="ch4" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 04</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                内容策略<br>
+                <span class="text-brand-primary">与渠道部署</span>
+            </h2>
+        </div>
+
+        <!-- Content philosophy -->
+        <div class="reveal mb-16 bg-gradient-to-r from-brand-primary/5 to-copper/5 rounded-2xl p-6 border border-brand-primary/10">
+            <p class="text-sm font-medium flex items-start gap-3">
+                <iconify-icon icon="lucide:info" class="text-brand-primary text-lg mt-0.5 shrink-0"></iconify-icon>
+                <span>男性对服装内容的消费模式是<strong>"低频但高转化"</strong>：他们不会主动刷穿搭内容，但一旦被触达且内容解决了具体问题，购买决策极快。</span>
+            </p>
+        </div>
+
+        <!-- Three content types -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">4.1</span>
+                三类核心内容
+            </h3>
+            <div class="space-y-6">
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="lucide:flask-conical" class="text-red-500 text-2xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">痛点实验室</h4>
+                            <p class="text-xs text-gray-400">对标数码评测，不是时尚内容</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">膝盖鼓包回弹测试、裆部耐磨测试、洗50次后版型对比、咖啡泼洒三防测试。风格硬核简洁，节奏快，结论先行。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="lucide:clapperboard" class="text-brand-primary text-2xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">场景快切</h4>
+                            <p class="text-xs text-gray-400">3-5秒 · 短平快驱动冲动购买</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">早上开会、中午跑客户、傍晚接孩子去公园——不讲故事，只让观众在几秒内看见这条裤子的覆盖能力。适合抖音信息流。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="lucide:book-open" class="text-green-600 text-2xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">省心指南</h4>
+                            <p class="text-xs text-gray-400">真实场景选题 · 极简解决方案</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">"不知道穿什么？黑裤搞定一周七天""出差只带一条裤子够吗？够""第一次见岳父穿什么不出错？"——适合小红书和知乎。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Priority -->
+        <div class="reveal">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">4.2</span>
+                渠道优先级
+            </h3>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                    <div class="flex gap-1 shrink-0"><span class="text-copper text-lg">&#9733;&#9733;&#9733;</span></div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">抖音（独立男装旗舰店）</h4>
+                        <p class="text-xs text-gray-400">主增长引擎 · 痛点实验室+场景快切</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                    <div class="flex gap-1 shrink-0"><span class="text-copper text-lg">&#9733;&#9733;&#9733;</span></div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">天猫/京东</h4>
+                        <p class="text-xs text-gray-400">承接搜索与复购 · 详情页强化耐穿/免烫数据</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                    <div class="flex gap-1 shrink-0"><span class="text-copper text-lg">&#9733;&#9733;<span class="text-gray-300">&#9733;</span></span></div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">逸阳女裤主账号 + 小红书</h4>
+                        <p class="text-xs text-gray-400">代购引流入口 · "给他也来一条"连带转化</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                    <div class="flex gap-1 shrink-0"><span class="text-copper text-lg">&#9733;<span class="text-gray-300">&#9733;&#9733;</span></span></div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">B站/知乎</h4>
+                        <p class="text-xs text-gray-400">口碑与信任建设 · 面料科普+横向评测</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                <p class="text-sm text-amber-800 font-medium flex items-start gap-3">
+                    <iconify-icon icon="lucide:key" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                    <span><strong>关键原则：</strong>EYAS 必须有独立的抖音旗舰店和视觉体系，在视觉和文案上彻底切断与"妈妈裤"的联想。但供应链和技术端充分共享——<strong>"前台独立，后台共享"</strong>。</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 5: AI EMPOWERMENT ==================== -->
+<section id="ch5" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 05</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                AI赋能<br>
+                <span class="text-brand-primary">落地方向</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">AI 不是品牌策略的点缀，而是路线D能否成立的关键执行杠杆。每个模块都必须回答"它让哪个业务指标变好了"。</p>
+        </div>
+
+        <!-- Five AI directions overview -->
+        <div class="reveal mb-16">
+            <div class="grid gap-4">
+                <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-red-50 to-white rounded-xl border border-red-100/50">
+                    <span class="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">P0</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">AI Workflow 梳理与重构</h4>
+                        <p class="text-xs text-gray-400">运营流程低效、人力堆量 → 30天内可见效</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-red-50 to-white rounded-xl border border-red-100/50">
+                    <span class="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">P0</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">数据运营体系搭建</h4>
+                        <p class="text-xs text-gray-400">无复购闭环、用户数据断裂 → 60天初步跑通</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-100/50">
+                    <span class="bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">P1</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">AI辅助选品与趋势预测</h4>
+                        <p class="text-xs text-gray-400">选品靠经验、库存风险高 → 45天出首份报告</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-amber-50 to-white rounded-xl border border-amber-100/50">
+                    <span class="bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">P1</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">数字人物 IP 与品牌资产</h4>
+                        <p class="text-xs text-gray-400">品牌无人格、内容无差异化 → 45天IP上线</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-5 bg-gradient-to-r from-blue-50 to-white rounded-xl border border-blue-100/50">
+                    <span class="bg-brand-primary text-white text-[10px] font-bold px-2.5 py-1 rounded-md">P2</span>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm">AI换装与虚拟试穿</h4>
+                        <p class="text-xs text-gray-400">内容生产成本高、效率低 → 30天可用</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow detail -->
+        <div class="reveal mb-16">
+            <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">5.1</span>
+                AI Workflow：六条核心流水线
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:pen-tool" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">内容生产</h4>
+                    <p class="text-xs text-gray-400 font-light">AI选题→多版本脚本→A/B测试→效果复盘→自学习闭环</p>
+                    <p class="text-xs text-copper mt-2 font-bold">单条ROI提升2倍+</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:radio" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">直播运营</h4>
+                    <p class="text-xs text-gray-400 font-light">AI排品表→实时数据监控→播后自动切片→话术知识库</p>
+                    <p class="text-xs text-copper mt-2 font-bold">AI是主播的副驾驶</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:headphones" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">客服售后</h4>
+                    <p class="text-xs text-gray-400 font-light">80%首轮AI响应 · 简洁直接人格 · 复杂问题自动转人工</p>
+                    <p class="text-xs text-copper mt-2 font-bold">回答不超过三句话</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:radar" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">竞品监控</h4>
+                    <p class="text-xs text-gray-400 font-light">每日自动抓取竞品动态 · 每周结构化竞品周报 · 标注需关注信号</p>
+                    <p class="text-xs text-copper mt-2 font-bold">从被动到主动</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:lightbulb" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">产品开发</h4>
+                    <p class="text-xs text-gray-400 font-light">趋势洞察→产品企划→样衣评审 · 标注空白带和风险款</p>
+                    <p class="text-xs text-copper mt-2 font-bold">数据驱动代替经验</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5">
+                    <iconify-icon icon="lucide:factory" class="text-brand-primary text-xl mb-3"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-1">供应链排产</h4>
+                    <p class="text-xs text-gray-400 font-light">实时预测需求量 · 自动触发翻单建议 · 自动标记预警信号</p>
+                    <p class="text-xs text-copper mt-2 font-bold">价值最大的Workflow</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data operations -->
+        <div class="reveal mb-16">
+            <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">5.2</span>
+                数据运营三层架构
+            </h3>
+            <div class="space-y-4">
+                <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100/50">
+                    <h4 class="font-bold mb-2 flex items-center gap-2"><iconify-icon icon="lucide:database" class="text-brand-primary"></iconify-icon> 第一层：数据采集与归一化</h4>
+                    <p class="text-sm text-gray-500 font-light">全域 SKU-内容-转化-退货 看板，按周更新。各平台数据汇总到统一视图。</p>
+                </div>
+                <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                    <h4 class="font-bold mb-2 flex items-center gap-2"><iconify-icon icon="lucide:users" class="text-copper"></iconify-icon> 第二层：用户分层与复购引擎</h4>
+                    <p class="text-sm text-gray-500 font-light">高潜复购用户 / 代购型用户 / 价格敏感型 / 沉默用户 / 流失预警——在正确的时间、用正确的内容、触达正确的人。</p>
+                </div>
+                <div class="bg-green-50 rounded-2xl p-6 border border-green-100/50">
+                    <h4 class="font-bold mb-2 flex items-center gap-2"><iconify-icon icon="lucide:bar-chart-3" class="text-green-600"></iconify-icon> 第三层：数据驱动经营决策</h4>
+                    <p class="text-sm text-gray-500 font-light">定价决策（利润最大化的价格）、渠道分配（动态ROI调整）、产品迭代（退货原因直接反馈研发）。</p>
+                </div>
+            </div>
+            <div class="mt-6 bg-brand-primary/5 rounded-xl p-5 border border-brand-primary/10">
+                <p class="text-sm font-medium text-brand-primary flex items-center gap-2">
+                    <iconify-icon icon="lucide:target"></iconify-icon>
+                    核心验证指标：90天内，首批用户的30天复购率达到 <strong>15%</strong> 以上。
+                </p>
+            </div>
+        </div>
+
+        <!-- Digital IP + AI Virtual Try-on -->
+        <div class="reveal mb-16">
+            <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">5.4-5.5</span>
+                数字人物IP + AI换装
+            </h3>
+            <div class="bg-gradient-to-br from-gray-900 to-[#1a1a2e] rounded-3xl p-8 text-white">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-copper mb-4">数字人物 IP</h4>
+                        <ul class="space-y-3 text-sm text-white/60 font-light">
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-copper mt-1 shrink-0"></iconify-icon>真实感偏高，30岁左右都市男性</li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-copper mt-1 shrink-0"></iconify-icon>简洁、直接、可靠、幽默但不油腻</li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-copper mt-1 shrink-0"></iconify-icon>不会跳槽、不会翻车、7x24可用</li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-copper mt-1 shrink-0"></iconify-icon>6-12个月内回本</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-copper mb-4">AI换装成本效益</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm"><span class="text-white/40">模特拍摄费</span><span class="text-green-400 font-bold">节省100%</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-white/40">摄影+场地费</span><span class="text-green-400 font-bold">节省100%</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-white/40">后期修图费</span><span class="text-green-400 font-bold">节省~80%</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-white/40">视频拍摄剪辑</span><span class="text-green-400 font-bold">节省~85%</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-white/40">时间成本</span><span class="text-green-400 font-bold">节省~80%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Synergy summary -->
+        <div class="reveal">
+            <div class="text-center py-12 bg-gradient-to-r from-brand-primary/5 to-copper/5 rounded-3xl border border-brand-primary/10 px-8">
+                <iconify-icon icon="lucide:infinity" class="text-4xl text-copper mb-4"></iconify-icon>
+                <p class="font-serif-brand text-xl md:text-2xl font-black gradient-text mb-4">五大方向协同逻辑</p>
+                <p class="text-sm text-gray-500 font-light max-w-2xl mx-auto">
+                    AI 让 EYAS 用 <strong class="text-brand-text">1/3 的人力成本</strong>，实现 <strong class="text-brand-text">3倍的内容产出和数据精度</strong>，从而让路线D的"复购效率壁垒"从概念变成可执行的系统。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 6: 90-DAY MVP ==================== -->
+<section id="ch6" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 06</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                90天<br>
+                <span class="text-brand-primary">最小可行实验方案</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">用数据验证路线D是否成立，在低成本、低风险的前提下看到可感知的变化。</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="reveal space-y-12 pl-8 border-l-2 border-copper/20 relative">
+            <!-- Phase 1 -->
+            <div class="relative timeline-item">
+                <div class="mb-4">
+                    <span class="bg-copper text-white text-xs font-bold px-3 py-1 rounded-full">第1-30天</span>
+                    <h3 class="text-xl font-black mt-3">地基搭建</h3>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">产品筛选</h4>
+                        <p class="text-xs text-gray-400 font-light">选出3-5条英雄裤，输出标准化产品卡</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">内容资产建设</h4>
+                        <p class="text-xs text-gray-400 font-light">拍摄痛点实验室系列 · 10条可发布短视频</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">账号体系搭建</h4>
+                        <p class="text-xs text-gray-400 font-light">EYAS抖音独立旗舰店视觉升级上线</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">数据底座</h4>
+                        <p class="text-xs text-gray-400 font-light">搭建SKU-内容-转化基础看板</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="relative timeline-item">
+                <div class="mb-4">
+                    <span class="bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">第31-60天</span>
+                    <h3 class="text-xl font-black mt-3">内容测试</h3>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">内容投放测试</h4>
+                        <p class="text-xs text-gray-400 font-light">A/B测试 · 目标 CTR&gt;3% 的内容模板</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">AI数字人试跑</h4>
+                        <p class="text-xs text-gray-400 font-light">京东夜间档AI数字人直播 · 转化率达真人40%+</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">代购引流实验</h4>
+                        <p class="text-xs text-gray-400 font-light">逸阳女裤主账号测试连带内容</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">用户数据采集</h4>
+                        <p class="text-xs text-gray-400 font-light">首批购买用户尺码/偏好数据入库</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="relative timeline-item">
+                <div class="mb-4">
+                    <span class="bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full">第61-90天</span>
+                    <h3 class="text-xl font-black mt-3">模型验证</h3>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">复购触达测试</h4>
+                        <p class="text-xs text-gray-400 font-light">推送复购推荐 · 复购响应率&gt;15%</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">内容效率评估</h4>
+                        <p class="text-xs text-gray-400 font-light">精品内容 vs 暴力投喂 ROI 对比</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">财务模型初算</h4>
+                        <p class="text-xs text-gray-400 font-light">基于90天数据初算单位经济模型</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100">
+                        <h4 class="font-bold text-sm mb-2">下一阶段提案</h4>
+                        <p class="text-xs text-gray-400 font-light">基于实验数据输出扩张方案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 7: RISK DISCLOSURE ==================== -->
+<section id="ch7" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 07</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                风险提示<br>
+                <span class="text-brand-primary">与诚实声明</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">一份负责任的提案不应只呈现乐观情景。</p>
+        </div>
+
+        <!-- Prerequisites -->
+        <div class="reveal mb-12">
+            <h3 class="text-xl font-black mb-6">前提条件</h3>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-100/50">
+                    <span class="bg-brand-primary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</span>
+                    <p class="text-sm text-gray-600 font-light"><strong class="text-brand-text">产品力必须达标。</strong>如果产品力不够，再好的定位也会在第一批用户的差评中崩塌。建议实验启动前对候选英雄裤做严格品质测试。</p>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-100/50">
+                    <span class="bg-brand-primary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</span>
+                    <p class="text-sm text-gray-600 font-light"><strong class="text-brand-text">接受J型增长曲线。</strong>前90天不会出现GMV爆发。如果核心诉求是"三个月内男装GMV翻倍"，路线D可能不是最合适的选择。</p>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-blue-50 rounded-xl border border-blue-100/50">
+                    <span class="bg-brand-primary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</span>
+                    <p class="text-sm text-gray-600 font-light"><strong class="text-brand-text">独立运营组织授权。</strong>独立账号、独立内容团队、独立预算。如果男装线仍然挂在女裤团队下"兼着做"，任何策略都难以落地。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk table -->
+        <div class="reveal">
+            <h3 class="text-xl font-black mb-6">主要风险</h3>
+            <div class="space-y-3">
+                <div class="flex items-start gap-4 p-5 bg-red-50/50 rounded-xl border border-red-100/30">
+                    <iconify-icon icon="lucide:alert-triangle" class="text-red-400 text-xl mt-0.5 shrink-0"></iconify-icon>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">产品力不足</h4>
+                        <p class="text-xs text-gray-500 font-light">缓解：实验前严格品测；不达标不推广</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-red-50/50 rounded-xl border border-red-100/30">
+                    <iconify-icon icon="lucide:alert-triangle" class="text-red-400 text-xl mt-0.5 shrink-0"></iconify-icon>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">组织惯性</h4>
+                        <p class="text-xs text-gray-500 font-light">缓解：提案阶段明确独立运营的组织条件</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-amber-50/50 rounded-xl border border-amber-100/30">
+                    <iconify-icon icon="lucide:alert-triangle" class="text-amber-400 text-xl mt-0.5 shrink-0"></iconify-icon>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">AI效果不达预期</h4>
+                        <p class="text-xs text-gray-500 font-light">缓解：设定明确效果阈值；不达标立即调整</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-amber-50/50 rounded-xl border border-amber-100/30">
+                    <iconify-icon icon="lucide:alert-triangle" class="text-amber-400 text-xl mt-0.5 shrink-0"></iconify-icon>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">竞品响应 & 甲方期望管理</h4>
+                        <p class="text-xs text-gray-500 font-light">缓解：依靠复购壁垒和数据资产构建护城河；提案阶段设定清晰的阶段性成功标准</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="py-20 bg-gradient-to-b from-white to-brand-surface border-t border-gray-100">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-xs text-gray-300 mb-8">— 提案完 —</p>
+        <div class="mb-8">
+            <span class="font-serif-brand font-black text-xl tracking-tighter">天空智策</span>
+            <span class="font-display text-[9px] tracking-[0.3em] text-gray-400 block mt-1">SKY STRATECH</span>
+        </div>
+        <p class="text-[10px] text-gray-300 max-w-lg mx-auto leading-relaxed">
+            本文件为天空智策团队原创策略提案，仅供郑州云顶服饰有限公司内部评审使用。未经授权不得转载或分发。
+        </p>
+        <a href="./index.html" class="inline-flex items-center gap-2 text-xs font-bold text-copper mt-8 hover:text-brand-primary transition-colors">
+            <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+            返回天空智策官网
+        </a>
+    </div>
+</footer>
+
+<script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+        const bar = document.getElementById('progress-bar');
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        bar.style.width = (scrollTop / scrollHeight * 100) + '%';
+    });
+
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // TOC active state
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 200;
+            if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        tocLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    });
+</script>
+
+</body>
+</html>
