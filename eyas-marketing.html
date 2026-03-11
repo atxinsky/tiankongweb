@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESEY男装 · 品牌整合营销战略方案 | 天空智策</title>
+    <meta name="description" content="2026逸阳（ESEY）男装品牌整合营销战略方案 — 在紧绷的世界里，剪裁出一个可以自由呼吸的出口">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { primary: '#2e6ab0', accent: '#c4956a', text: '#1a1a2e', surface: '#f7f9fc' },
+                        copper: '#c4956a',
+                        eyas: { dark: '#1a1a2e', blue: '#2e6ab0', warm: '#c4956a', light: '#f7f9fc', mint: '#e8f5e9' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --brand-primary: #2e6ab0;
+            --brand-accent: #c4956a;
+            --brand-text: #1a1a2e;
+            --brand-surface: #f7f9fc;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--brand-text);
+            background: #fff;
+            overflow-x: hidden;
+        }
+        .font-serif-brand { font-family: 'Noto Serif SC', serif; letter-spacing: -0.05em; }
+        .font-display { font-family: 'Sora', 'Noto Sans SC', sans-serif; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+
+        .text-copper { color: var(--brand-accent); }
+        .bg-copper { background-color: var(--brand-accent); }
+
+        /* Progress bar */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+            background: linear-gradient(90deg, var(--brand-accent), var(--brand-primary));
+            transition: width 0.1s linear;
+        }
+
+        /* Floating TOC */
+        .toc-link { transition: all 0.3s; }
+        .toc-link.active { color: var(--brand-accent); transform: translateX(4px); }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c4956a40; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4956a80; }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-accent), var(--brand-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Progress Bar -->
+    <div id="progress-bar" style="width: 0%;"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="./index.html" class="flex items-center gap-3 group">
+                <iconify-icon icon="lucide:arrow-left" class="text-gray-400 group-hover:text-brand-primary transition-colors"></iconify-icon>
+                <span class="font-display text-xs font-bold tracking-widest text-gray-500">天空智策</span>
+            </a>
+            <span class="text-[10px] font-bold tracking-widest text-copper uppercase">Marketing Strategy 2026</span>
+        </div>
+    </header>
+
+    <!-- Floating TOC (Desktop) -->
+    <nav id="floating-toc" class="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-2">
+        <a href="#prologue" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">序章</a>
+        <a href="#insight" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">洞察</a>
+        <a href="#strategy" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">策略</a>
+        <a href="#video-matrix" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">视频</a>
+        <a href="#offline" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">线下</a>
+        <a href="#retail" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">零售</a>
+        <a href="#timeline" class="toc-link text-[10px] font-bold tracking-wider text-gray-300 hover:text-copper">节奏</a>
+    </nav>
+
+    <!-- ═══════════════════ COVER ═══════════════════ -->
+    <section class="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-[#0d1b2a] via-[#1b2838] to-[#1a1a2e] overflow-hidden">
+        <div class="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#2e6ab0]/10 blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-[-15%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#c4956a]/8 blur-[120px] pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+
+        <div class="relative text-center px-6 max-w-4xl">
+            <p class="text-copper font-display text-xs tracking-[0.3em] mb-8 uppercase reveal">2026 Brand Integrated Marketing Strategy</p>
+            <h1 class="font-serif-brand text-5xl md:text-7xl font-black text-white leading-tight mb-6 reveal stagger-1">
+                逸阳<span class="text-copper">男装</span>
+            </h1>
+            <p class="text-white/40 text-lg md:text-xl font-light mb-4 reveal stagger-2">品牌整合营销战略方案</p>
+            <p class="text-white/25 text-sm font-light max-w-xl mx-auto mb-12 reveal stagger-3">在紧绷的世界里，剪裁出一个可以自由呼吸的出口</p>
+            <div class="reveal stagger-3">
+                <a href="#prologue" class="inline-flex items-center gap-2 text-copper text-xs font-bold tracking-widest hover:text-white transition-colors">
+                    <span>开始阅读</span>
+                    <iconify-icon icon="lucide:chevron-down" class="animate-bounce"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ PROLOGUE ═══════════════════ -->
+    <section id="prologue" class="py-24 md:py-32 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Prologue</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-8">你发现了吗？<br>中国男人，正在<span class="gradient-text">悄悄改变</span></h2>
+            </div>
+
+            <div class="space-y-8 reveal stagger-1">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                    <p class="text-gray-600 font-light leading-relaxed">过去十年，中国男装更像是一套<strong class="text-eyas-dark font-bold">盔甲</strong>。它服务于两件事：职场秩序以及社交体面。西装要挺，皮鞋要亮，品牌要看得见。衣服，更像是男人面对世界的一层外壳。</p>
+                </div>
+                <div class="bg-gradient-to-r from-copper/5 to-brand-primary/5 rounded-2xl p-8 border border-copper/10">
+                    <h3 class="text-2xl font-black mb-4 text-copper">松弛感</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">但今天，这种逻辑正在被一种新的感觉慢慢取代。男人开始在意的，不再只是"看起来如何"，而是——<strong class="text-eyas-dark font-bold">穿起来如何</strong>。</p>
+                    <p class="text-gray-500 font-light leading-relaxed mt-3">他们开始追求：体感的自由、场景的自由以及一点点情绪上的释放。中国男装，正在从一种社会盔甲，走向一种更自在的生活方式。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH1: MARKET INSIGHT ═══════════════════ -->
+    <section id="insight" class="py-24 md:py-32 bg-[#f7f9fc]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 01</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-16">一、市场<span class="gradient-text">洞察</span></h2>
+            </div>
+
+            <!-- 1.1 Market Scale -->
+            <div class="reveal">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">1.1</span>
+                    规模增长 → 品质驱动
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                        <div class="text-4xl font-black text-brand-primary mb-2 font-display">6,570<span class="text-lg">亿</span></div>
+                        <p class="text-sm text-gray-500 font-light">2025年中国男装市场规模（艾媒咨询）</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                        <div class="text-4xl font-black text-copper mb-2 font-display">7,400<span class="text-lg">亿</span></div>
+                        <p class="text-sm text-gray-500 font-light">预计2027年市场规模，重心从"多买"转向"买好"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.2 Three Trends -->
+            <div class="reveal">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">1.2</span>
+                    三大核心消费趋势
+                </h3>
+                <div class="grid md:grid-cols-3 gap-5 mb-12">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-copper/10 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:wind" class="text-copper text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold mb-2">"松弛感"绅士</h4>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed">宽松但不失精致的西装廓形、亚麻/冷感羊毛面料成主流。"半正式"风格让职场和社交无缝切换。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:mountain" class="text-brand-primary text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold mb-2">户外与"轻功能"</h4>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed">2025年户外服饰市场突破<strong>1,430亿</strong>。冲锋衣走入写字楼，Gorpcore背后是对"生活感"美学的渴望。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:leaf" class="text-green-600 text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold mb-2">绿色品质消费</h4>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed">42%高净值人群将"积极生活"视为高品质核心，更愿为有机棉、竹纤维等环保材质支付溢价。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.3 Market Gap -->
+            <div class="reveal">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">1.3</span>
+                    市场分层与机会
+                </h3>
+                <div class="space-y-3 mb-8">
+                    <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                        <span class="text-xs font-bold text-gray-400 w-20 shrink-0">大众国民</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm">海澜之家 · 优衣库</h4>
+                            <p class="text-xs text-gray-400">供应链优势，份额最大，但品牌气质不高级</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                        <span class="text-xs font-bold text-gray-400 w-20 shrink-0">高端/轻奢</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm">比音勒芬 · 九牧王</h4>
+                            <p class="text-xs text-gray-400">垂直细分领域强劲，盈利能力优，但品牌老化严重</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100">
+                        <span class="text-xs font-bold text-gray-400 w-20 shrink-0">运动/户外</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm">始祖鸟 · 凯乐石</h4>
+                            <p class="text-xs text-gray-400">健康生活红利，份额快速扩张，但价格虚高</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-[#0d1b2a] to-[#1b2838] rounded-2xl p-8 text-center">
+                    <p class="text-copper text-xs tracking-widest mb-3 uppercase font-bold">Opportunity</p>
+                    <p class="text-white text-xl font-black mb-2">中间层级，缺乏一个</p>
+                    <p class="text-copper text-2xl font-black font-serif-brand">"极致性价比的裤装专家"</p>
+                    <p class="text-white/40 text-sm mt-4 font-light">拒绝向上的虚荣 · 拒绝向下的平庸 · 我们要的是"高阶松弛感"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH2: BRAND STRATEGY ═══════════════════ -->
+    <section id="strategy" class="py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 02</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-8">二、品牌<span class="gradient-text">策略</span></h2>
+            </div>
+
+            <!-- Brand Manifesto -->
+            <div class="reveal bg-gradient-to-br from-gray-50 to-white rounded-2xl p-10 border border-gray-100 mb-16">
+                <div class="max-w-2xl mx-auto text-center">
+                    <p class="text-gray-500 font-light leading-loose mb-6 text-sm">
+                        在这个追求"快"的世界里，我们想和你谈谈"松弛"。<br>
+                        多少次，你被僵硬的西装束缚在谈判桌前？<br>
+                        多少次，你在紧绷的剪裁中，弄丢了步履间的自由？
+                    </p>
+                    <p class="text-gray-600 font-light leading-loose mb-6 text-sm">
+                        逸阳带着二十余年对"每一寸曲线"的偏执，<br>
+                        将人体工学的精准，藏进3D立体的裁剪；<br>
+                        将跨越场景的科技，织入每一丝透气、抗皱、高弹的面料。
+                    </p>
+                    <div class="bg-gradient-to-r from-copper/10 to-brand-primary/10 rounded-xl p-6 mt-6">
+                        <p class="text-xl font-black font-serif-brand mb-1">进退有度，身心无束</p>
+                        <p class="text-xs text-gray-400">逸阳男装 · 品牌核心理念</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Identity -->
+            <div class="reveal grid md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-[#f7f9fc] rounded-2xl p-6 border border-gray-100">
+                    <iconify-icon icon="lucide:shirt" class="text-copper text-2xl mb-4"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-2">风格定位</h4>
+                    <p class="text-xs text-gray-500 font-light">休闲职场风，松弛、轻松，色彩追求和谐平衡，多场景适用</p>
+                </div>
+                <div class="bg-[#f7f9fc] rounded-2xl p-6 border border-gray-100">
+                    <iconify-icon icon="lucide:target" class="text-brand-primary text-2xl mb-4"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-2">目标客群</h4>
+                    <p class="text-xs text-gray-500 font-light">30-45岁城市资深职场人、公务员、中小企业主。工作节奏快，没时间研究穿搭</p>
+                </div>
+                <div class="bg-[#f7f9fc] rounded-2xl p-6 border border-gray-100">
+                    <iconify-icon icon="lucide:heart-handshake" class="text-green-600 text-2xl mb-4"></iconify-icon>
+                    <h4 class="font-bold text-sm mb-2">核心痛点</h4>
+                    <p class="text-xs text-gray-500 font-light">传统修身西裤勒肚子、膝盖紧绷、长时间开会或驾车极度不适、讨厌烫衣服</p>
+                </div>
+            </div>
+
+            <!-- Three Strategies -->
+            <div class="space-y-8">
+                <div class="reveal">
+                    <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-copper font-display text-sm">2.1</span>
+                        重新定义"男人的舒适区"
+                    </h3>
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                        <p class="text-sm text-gray-500 font-light mb-4">逸阳女裤的成功在于"懂修饰、够舒适"。男裤的逻辑则偏向"功能性的隐形"。</p>
+                        <div class="bg-copper/5 rounded-xl p-5">
+                            <p class="text-sm font-bold text-copper mb-2">核心策略</p>
+                            <p class="text-sm text-gray-600 font-light">不只谈"面料好"，要强调<strong>"动态平衡"</strong>。定义"360°弹力商务裤"，强调在开会、驾车、户外等不同场景下的松弛和切换自如。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-copper font-display text-sm">2.2</span>
+                        建立"裤装专家"的独特性
+                    </h3>
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                        <p class="text-sm text-gray-500 font-light mb-4">既然叫"逸阳男裤"，就要把"专注"做到极致。</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-blue-50 rounded-xl p-5">
+                                <p class="text-sm font-bold text-brand-primary mb-2">版型科学化</p>
+                                <p class="text-xs text-gray-600 font-light">利用多年人体工程学数据，提出针对中国男性的"数据库版型"</p>
+                            </div>
+                            <div class="bg-copper/5 rounded-xl p-5">
+                                <p class="text-sm font-bold text-copper mb-2">标签化产品</p>
+                                <p class="text-xs text-gray-600 font-light">创造明星单品"逸阳0感西裤"或"差旅神裤"，抢占消费者第一联想</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-copper font-display text-sm">2.3</span>
+                        品牌人格"去标签化"与"再定义"
+                    </h3>
+                    <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                        <p class="text-sm text-gray-500 font-light mb-4">逸阳女裤的受众可能是妈妈辈或职场女性，容易给男裤带来"那是女人买的牌子"的心理暗示。</p>
+                        <div class="bg-gradient-to-r from-copper/5 to-brand-primary/5 rounded-xl p-5">
+                            <p class="text-sm font-bold mb-2">策略：品牌形象独立化</p>
+                            <p class="text-xs text-gray-600 font-light">品牌人格化重启 — 从产品切入，利用情感吸引，用产品特性与品牌精神引爆人群</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH3: VIDEO MATRIX ═══════════════════ -->
+    <section id="video-matrix" class="py-24 md:py-32 bg-[#f7f9fc]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 03</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-6">三、视频传播<span class="gradient-text">矩阵</span></h2>
+                <p class="text-gray-500 font-light mb-16">1条品牌大片 + 3条态度片 + 3条功能片 + 1条主推产品视觉片</p>
+            </div>
+
+            <!-- Brand Film -->
+            <div class="reveal mb-10">
+                <div class="bg-gradient-to-br from-[#0d1b2a] to-[#1b2838] rounded-2xl p-8 md:p-10 text-white">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-copper/20 rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:film" class="text-copper text-xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">品牌大片</h4>
+                            <p class="text-[10px] text-white/40">Status — 定调子 · 1条</p>
+                        </div>
+                    </div>
+                    <p class="text-sm font-bold text-copper mb-3">创意点：规则迷宫与"呼吸留白"的视觉辩证</p>
+                    <div class="bg-white/5 rounded-xl p-6 mb-4 border border-white/10">
+                        <p class="text-white/70 text-sm font-light leading-relaxed italic">
+                            "所有的规则，起初都是为了限制。<br>
+                            但在这个世界，你可以选择锋芒毕露，也可以选择温润如玉。<br>
+                            向上时，不忘初心；躬身时，不失格局。<br>
+                            懂得给身体留白，才能给心境腾挪空间。<br>
+                            <strong class="text-copper">进退有度，身心无束。逸阳男装。</strong>"
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] bg-white/10 text-white/50 px-3 py-1 rounded-full">视觉元素：迷宫 · 光 · 山峰</span>
+                        <span class="text-[10px] bg-white/10 text-white/50 px-3 py-1 rounded-full">视频号朋友圈 + 城市地标LED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attitude Films -->
+            <div class="reveal mb-10">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">3.1</span>
+                    品牌态度片 × 3
+                </h3>
+                <p class="text-sm text-gray-500 font-light mb-6">不同行业品牌挚友讲述人生哲学，融入场景</p>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                        <div class="w-16 h-16 bg-copper/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <iconify-icon icon="lucide:palette" class="text-copper text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-1">艺术家 — 吴明</h4>
+                        <p class="text-[10px] text-gray-400">投向家居/设计人群</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <iconify-icon icon="lucide:mic" class="text-brand-primary text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-1">脱口秀演员 — 付航</h4>
+                        <p class="text-[10px] text-gray-400">投向都市压力白领</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <iconify-icon icon="lucide:scissors" class="text-green-600 text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-1">服装设计师 — 待定</h4>
+                        <p class="text-[10px] text-gray-400">投向时尚/潮流人群</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hardcore Tests -->
+            <div class="reveal mb-10">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">3.2</span>
+                    硬核评测：【暴力实验室】× 3
+                </h3>
+                <p class="text-sm text-gray-500 font-light mb-6">针对男性"参数党"特质，用视频直观展示物理性能</p>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:droplets" class="text-amber-600 text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-2">防污测试</h4>
+                        <p class="text-xs text-gray-500 font-light">咖啡、可乐泼上去瞬间滑落（纳米三防技术）</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:rotate-3d" class="text-purple-600 text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-2">抗皱测试</h4>
+                        <p class="text-xs text-gray-500 font-light">像拧麻花一样拧裤子，松开后瞬间平整</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:move" class="text-red-600 text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm mb-2">弹力测试</h4>
+                        <p class="text-xs text-gray-500 font-light">武术达人穿西装裤做大动作，特写裆部和膝盖的受力</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Visual -->
+            <div class="reveal">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">3.3</span>
+                    产品视觉大片 × 1
+                </h3>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <p class="text-sm font-bold text-copper mb-3">创意点：24小时不换装</p>
+                    <p class="text-sm text-gray-500 font-light mb-4">办公室冷色调百叶窗影 → 男主会议室起身 → 无缝切换美术馆 → 安德鲁·怀斯画作中的自然风光 → 草丛奔跑 → 树下小憩</p>
+                    <div class="bg-gradient-to-r from-copper/5 to-brand-primary/5 rounded-xl p-5 text-center">
+                        <p class="font-serif-brand text-xl font-black">"上一刻职场，这一刻主场。"</p>
+                        <p class="text-[10px] text-gray-400 mt-2">视觉参考：安德鲁·怀斯（Andrew Wyeth）"风与织物"美学</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Budget Table -->
+            <div class="reveal mt-12">
+                <h3 class="text-xl font-black mb-6 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">3.4</span>
+                    媒体策略配比
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-2xl border border-gray-100 overflow-hidden text-sm">
+                        <thead>
+                            <tr class="bg-[#0d1b2a] text-white text-xs">
+                                <th class="text-left p-4 font-bold">视频类型</th>
+                                <th class="text-center p-4 font-bold">数量</th>
+                                <th class="text-left p-4 font-bold">推荐平台</th>
+                                <th class="text-left p-4 font-bold">投放目的</th>
+                                <th class="text-center p-4 font-bold">预算</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-gray-50">
+                                <td class="p-4 font-bold">品牌大片</td>
+                                <td class="p-4 text-center">1</td>
+                                <td class="p-4 text-gray-500">视频号/朋友圈/地标</td>
+                                <td class="p-4 text-gray-500">塑造溢价，让品牌"显贵"</td>
+                                <td class="p-4 text-center text-copper font-bold">25%</td>
+                            </tr>
+                            <tr class="border-t border-gray-50 bg-gray-50/50">
+                                <td class="p-4 font-bold">品牌态度片</td>
+                                <td class="p-4 text-center">3</td>
+                                <td class="p-4 text-gray-500">小红书/知乎/KOL</td>
+                                <td class="p-4 text-gray-500">建立认同，让品牌"懂我"</td>
+                                <td class="p-4 text-center text-copper font-bold">30%</td>
+                            </tr>
+                            <tr class="border-t border-gray-50">
+                                <td class="p-4 font-bold">硬核功能片</td>
+                                <td class="p-4 text-center">3</td>
+                                <td class="p-4 text-gray-500">抖音/千川/信息流</td>
+                                <td class="p-4 text-gray-500">解决痛点，让品牌"好用"</td>
+                                <td class="p-4 text-center text-copper font-bold">30%</td>
+                            </tr>
+                            <tr class="border-t border-gray-50 bg-gray-50/50">
+                                <td class="p-4 font-bold">产品视觉片</td>
+                                <td class="p-4 text-center">1</td>
+                                <td class="p-4 text-gray-500">抖音直播间/天猫</td>
+                                <td class="p-4 text-gray-500">直接收割，让品牌"好买"</td>
+                                <td class="p-4 text-center text-copper font-bold">15%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH4: OFFLINE EVENTS ═══════════════════ -->
+    <section id="offline" class="py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 04</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-6">四、线下事件与<span class="gradient-text">空间触点</span></h2>
+                <p class="text-gray-500 font-light mb-16">让"松弛感"看得见、摸得着、带得走</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="reveal">
+                    <div class="bg-[#f7f9fc] rounded-2xl p-8 border border-gray-100 h-full">
+                        <div class="w-12 h-12 bg-copper/10 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:tent" class="text-copper text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold mb-3">城市快闪："城市呼吸"伸展空间</h4>
+                        <ul class="space-y-2 text-xs text-gray-500 font-light">
+                            <li class="flex gap-2"><span class="text-copper">•</span>CBD核心区巨大透明气膜装置</li>
+                            <li class="flex gap-2"><span class="text-copper">•</span>压力释放区：穿裤做"大跨步"或"深蹲"</li>
+                            <li class="flex gap-2"><span class="text-copper">•</span>0感试穿：盲盒试穿，仅凭体感投票</li>
+                            <li class="flex gap-2"><span class="text-copper">•</span>悬浮裤装在微风中摆动，呼应"风与织物"美学</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reveal stagger-1">
+                    <div class="bg-[#f7f9fc] rounded-2xl p-8 border border-gray-100 h-full">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:car" class="text-brand-primary text-2xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold mb-3">跨界联动：× 高端新能源汽车</h4>
+                        <ul class="space-y-2 text-xs text-gray-500 font-light">
+                            <li class="flex gap-2"><span class="text-brand-primary">•</span>目标客群30-45岁高度重合</li>
+                            <li class="flex gap-2"><span class="text-brand-primary">•</span>长途驾车腰腹束缚感是共同痛点</li>
+                            <li class="flex gap-2"><span class="text-brand-primary">•</span>与蔚来/小米/特斯拉试驾中心合作</li>
+                            <li class="flex gap-2"><span class="text-brand-primary">•</span>"久坐不皱，长途不勒，让身体和座驾一起自动驾驶"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual & Channel Upgrade -->
+            <div class="reveal mt-16">
+                <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                    <span class="text-copper font-display text-sm">4.1</span>
+                    视觉与渠道升级
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <h4 class="font-bold text-sm mb-3">门店SI：从"卖货场"到"冥想室"</h4>
+                        <ul class="space-y-2 text-xs text-gray-500 font-light">
+                            <li>色彩体系：大地色系 + 灰豆绿 + 原木</li>
+                            <li>陈列哲学：减少高密度挂装，增加留白</li>
+                            <li>功能分区：设立"咖啡办公区"</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <h4 class="font-bold text-sm mb-3">包装美学：仪式感的延伸</h4>
+                        <ul class="space-y-2 text-xs text-gray-500 font-light">
+                            <li>环保材质：杜邦纸或再生棉织物收纳袋</li>
+                            <li>细节控：随附"松弛指南"卡片</li>
+                            <li>不仅是洗涤说明，更是一句给职场人的解压寄语</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH5: SMART RETAIL ═══════════════════ -->
+    <section id="retail" class="py-24 md:py-32 bg-[#f7f9fc]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 05 — 六</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-6">"无界舒适"<span class="gradient-text">智慧新零售</span></h2>
+                <p class="text-gray-500 font-light mb-16">从"试穿"到"智穿" — 打破传统门店的物理边界</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="reveal bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-primary/10 rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:scan" class="text-brand-primary text-xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm">AI 3D 云取码与虚拟试穿</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">高精度3D人体扫描仪，站立5秒生成"数字孪生分身"。线上新款一键推送到分身查看效果，退货率降至5%以下。</p>
+                </div>
+
+                <div class="reveal stagger-1 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-copper/10 rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:truck" class="text-copper text-xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm">"前店后仓"与云端配送</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">联动美团/饿了么/顺丰同城，"1小时舒适达"。卖的不只是衣服，是"救急的体面"。</p>
+                </div>
+
+                <div class="reveal stagger-2 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:bot" class="text-green-600 text-xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm">智慧导购：私人穿搭助理</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">AI导购助手实时看到会员偏好。拒绝推销，只做专业建议。"北京明日降温，您的'0感西裤'建议搭配本季新款羊毛开衫。"</p>
+                </div>
+
+                <div class="reveal stagger-3 bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:package" class="text-amber-600 text-xl"></iconify-icon>
+                        </div>
+                        <h4 class="font-bold text-sm">快闪补给站：自动售卡机</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">高铁站、机场候机楼设置"逸阳舒适盒子"。基础款T恤、差旅袜、易折叠衬衫，数字化橱窗实时互动引流。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CH6: TIMELINE ═══════════════════ -->
+    <section id="timeline" class="py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="reveal">
+                <span class="text-copper font-display text-xs tracking-[0.3em] mb-6 block uppercase">Chapter 06 — 七</span>
+                <h2 class="font-serif-brand text-3xl md:text-4xl font-black leading-tight mb-16">传播节奏与<span class="gradient-text">预算配比</span></h2>
+            </div>
+
+            <div class="space-y-8">
+                <div class="reveal flex gap-6">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-12 h-12 bg-copper rounded-full flex items-center justify-center text-white font-bold font-display text-sm">01</div>
+                        <div class="w-px flex-1 bg-gray-200 mt-2"></div>
+                    </div>
+                    <div class="bg-[#f7f9fc] rounded-2xl p-8 border border-gray-100 flex-1 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold">声量引爆</h4>
+                            <span class="text-[10px] font-bold text-copper bg-copper/10 px-3 py-1 rounded-full">3月 — 4月</span>
+                        </div>
+                        <p class="text-sm text-gray-600 font-light mb-3">核心目标：定义"高阶松弛感"</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">品牌大片发布</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">付航等意见领袖发声</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">#拒绝盔甲# 话题挑战</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold font-display text-sm">02</div>
+                        <div class="w-px flex-1 bg-gray-200 mt-2"></div>
+                    </div>
+                    <div class="bg-[#f7f9fc] rounded-2xl p-8 border border-gray-100 flex-1 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold">深度种草</h4>
+                            <span class="text-[10px] font-bold text-brand-primary bg-blue-50 px-3 py-1 rounded-full">5月 — 6月</span>
+                        </div>
+                        <p class="text-sm text-gray-600 font-light mb-3">核心目标：建立"裤装专家"认知</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">暴力实验室视频投放</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">知乎/小红书技术流测评</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">明星私服街拍</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal flex gap-6">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold font-display text-sm">03</div>
+                    </div>
+                    <div class="bg-[#f7f9fc] rounded-2xl p-8 border border-gray-100 flex-1">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold">体验转化</h4>
+                            <span class="text-[10px] font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">7月 — 8月</span>
+                        </div>
+                        <p class="text-sm text-gray-600 font-light mb-3">核心目标：驱动线下与电商转化</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">"城市呼吸"快闪店</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">618全渠道促销</span>
+                            <span class="text-[10px] bg-gray-100 text-gray-500 px-3 py-1 rounded-full">车企跨界联名试穿</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ENDING ═══════════════════ -->
+    <section class="py-24 md:py-32 bg-gradient-to-b from-[#0d1b2a] via-[#1b2838] to-[#1a1a2e] text-center relative overflow-hidden">
+        <div class="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#2e6ab0]/8 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#c4956a]/8 blur-[100px] pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-6 relative">
+            <p class="text-white/30 text-sm font-light mb-6 reveal">在紧绷的世界里，</p>
+            <h2 class="font-serif-brand text-3xl md:text-5xl font-black text-white leading-tight mb-6 reveal stagger-1">
+                我们希望剪裁出<br>一个可以<span class="text-copper">自由呼吸</span>的出口
+            </h2>
+            <p class="text-copper text-lg font-light mb-12 reveal stagger-2">2026，让身体先自由。</p>
+            <div class="reveal stagger-3">
+                <p class="text-white/20 text-xs tracking-widest uppercase">2026 逸阳（ESEY）男装品牌整合营销战略方案</p>
+                <p class="text-white/10 text-xs mt-4">Presented by 天空智策 SKY STRATECH</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a14] py-8">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <a href="./index.html" class="text-white/30 text-xs hover:text-copper transition-colors">天空智策</a>
+                <span class="text-white/10">|</span>
+                <a href="./eyas-proposal.html" class="text-white/30 text-xs hover:text-copper transition-colors">品牌定位提案</a>
+                <span class="text-white/10">|</span>
+                <span class="text-copper text-xs font-bold">营销战略方案</span>
+            </div>
+            <p class="text-white/15 text-[10px]">© 2026 天空智策 SKY STRATECH</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+            document.getElementById('progress-bar').style.width = pct + '%';
+        });
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Floating TOC active state
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                if (scrollY >= top - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
