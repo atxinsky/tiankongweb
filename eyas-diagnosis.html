@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逸阳品牌诊断与战略合作提案 | 天空智策</title>
+    <meta name="description" content="逸阳品牌诊断与战略合作提案 — 从「卖货机器」到「品牌资产」的诚实诊断">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { primary: '#2e6ab0', accent: '#c4956a', text: '#1a1a2e', surface: '#f7f9fc' },
+                        copper: '#c4956a',
+                        eyas: { dark: '#1a1a2e', blue: '#2e6ab0', warm: '#c4956a', light: '#f7f9fc' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --brand-primary: #2e6ab0;
+            --brand-accent: #c4956a;
+            --brand-text: #1a1a2e;
+            --brand-surface: #f7f9fc;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--brand-text);
+            background: #fff;
+            overflow-x: hidden;
+        }
+        .font-serif-brand { font-family: 'Noto Serif SC', serif; letter-spacing: -0.05em; }
+        .font-display { font-family: 'Sora', 'Noto Sans SC', sans-serif; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-accent); border-radius: 3px; }
+
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+            background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+            transition: width 0.1s;
+        }
+
+        .toc-link { transition: all 0.3s; }
+        .toc-link.active { color: var(--brand-accent); font-weight: 700; }
+        .toc-link:hover { color: var(--brand-primary); }
+
+        .insight-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
+            border: 1px solid rgba(46, 106, 176, 0.08);
+        }
+        .insight-card:hover { border-color: var(--brand-accent); box-shadow: 0 8px 40px rgba(196, 149, 106, 0.1); }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .proposal-table { border-collapse: separate; border-spacing: 0; }
+        .proposal-table th { background: var(--brand-text); color: #fff; }
+        .proposal-table td { border-bottom: 1px solid #eef2f7; }
+        .proposal-table tr:hover td { background: #f8fafc; }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar" class="no-print" style="width: 0%"></div>
+
+<!-- Back to main site -->
+<a href="./index.html" class="no-print fixed top-6 left-6 z-50 flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-brand-primary transition-all bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+    <iconify-icon icon="lucide:arrow-left" class="text-base"></iconify-icon>
+    返回天空智策
+</a>
+
+<!-- Floating TOC (desktop) -->
+<nav id="floating-toc" class="no-print hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
+    <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-gray-100 shadow-lg p-4 text-[11px] space-y-3 max-w-[140px]">
+        <a href="#cover" class="toc-link block text-gray-400 truncate">封面</a>
+        <a href="#ch1" class="toc-link block text-gray-400 truncate">一·品牌现状诊断</a>
+        <a href="#ch2" class="toc-link block text-gray-400 truncate">二·核心问题拆解</a>
+        <a href="#ch3" class="toc-link block text-gray-400 truncate">三·品牌建设方向</a>
+        <a href="#ch4" class="toc-link block text-gray-400 truncate">四·创意方向提案</a>
+        <a href="#ch5" class="toc-link block text-gray-400 truncate">五·合作框架</a>
+        <a href="#ch6" class="toc-link block text-gray-400 truncate">六·价值交付</a>
+    </div>
+</nav>
+
+<!-- ==================== COVER ==================== -->
+<section id="cover" class="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#1b2838] to-[#1a1a2e]"></div>
+    <div class="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-primary/10 blur-[150px]"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-copper/10 blur-[120px]"></div>
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+        <div class="reveal mb-8">
+            <span class="inline-block text-[10px] font-bold tracking-[0.5em] text-copper/80 uppercase mb-2">Brand Diagnosis & Strategy</span>
+            <div class="w-20 h-[1px] bg-copper/40 mx-auto"></div>
+        </div>
+
+        <h1 class="reveal stagger-1 font-serif-brand text-white text-4xl md:text-6xl lg:text-7xl font-black leading-[0.95] mb-4">
+            <span class="block text-copper">逸阳</span>
+            <span class="block text-3xl md:text-4xl lg:text-5xl mt-2 text-white/90">品牌诊断与战略合作提案</span>
+        </h1>
+
+        <p class="reveal stagger-2 text-xl md:text-2xl text-white/60 font-light mt-8 mb-4">
+            从「卖货机器」到「品牌资产」
+        </p>
+        <p class="reveal stagger-3 text-sm text-white/30 font-light max-w-lg mx-auto leading-relaxed">
+            一份基于数据的诚实诊断
+        </p>
+
+        <div class="reveal stagger-4 mt-16 flex flex-col md:flex-row items-center justify-center gap-8 text-xs text-white/30">
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:building-2" class="text-copper/60"></iconify-icon>
+                <span>呈递方：<strong class="text-white/50">天空智策</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:send" class="text-copper/60"></iconify-icon>
+                <span>呈递对象：<strong class="text-white/50">郑州云顶服饰（逸阳 ESEY）</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="lucide:calendar" class="text-copper/60"></iconify-icon>
+                <span>2026年3月</span>
+            </div>
+        </div>
+
+        <div class="reveal stagger-4 mt-6">
+            <span class="inline-flex items-center gap-2 text-[10px] text-red-400/60 tracking-widest">
+                <iconify-icon icon="lucide:lock" class="text-xs"></iconify-icon>
+                机密文件 · 仅供内部评审
+            </span>
+        </div>
+
+        <div class="reveal stagger-4 mt-20 animate-bounce">
+            <iconify-icon icon="lucide:chevrons-down" class="text-2xl text-white/20"></iconify-icon>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<section class="py-20 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-12">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Agenda</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black">提案结构</h2>
+        </div>
+        <div class="reveal stagger-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <a href="#ch1" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">01</span>
+                <h3 class="font-bold mb-2">品牌现状诊断</h3>
+                <p class="text-xs text-gray-400 font-light">基于公开数据的逸阳全渠道品牌健康度扫描</p>
+            </a>
+            <a href="#ch2" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">02</span>
+                <h3 class="font-bold mb-2">核心问题拆解</h3>
+                <p class="text-xs text-gray-400 font-light">卖货很强，品牌很弱——数据背后的结构性风险</p>
+            </a>
+            <a href="#ch3" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">03</span>
+                <h3 class="font-bold mb-2">品牌建设方向建议</h3>
+                <p class="text-xs text-gray-400 font-light">营销与品牌两条腿走路的框架</p>
+            </a>
+            <a href="#ch4" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">04</span>
+                <h3 class="font-bold mb-2">创意方向提案</h3>
+                <p class="text-xs text-gray-400 font-light">三个可落地的品牌内容方向</p>
+            </a>
+            <a href="#ch5" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">05</span>
+                <h3 class="font-bold mb-2">合作框架</h3>
+                <p class="text-xs text-gray-400 font-light">品牌战略合伙人模式与分工建议</p>
+            </a>
+            <a href="#ch6" class="insight-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] block">
+                <span class="text-copper font-display font-black text-3xl block mb-3">06</span>
+                <h3 class="font-bold mb-2">价值交付</h3>
+                <p class="text-xs text-gray-400 font-light">天空智策能给逸阳带来什么</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 1: BRAND DIAGNOSIS ==================== -->
+<section id="ch1" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 01</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                品牌现状诊断<br>
+                <span class="text-brand-primary">一个「强销售、弱品牌」的典型样本</span>
+            </h2>
+        </div>
+
+        <!-- Basic Stats -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.1</span>
+                逸阳基本面
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-green-50/50 rounded-2xl p-8 border border-green-100/50">
+                    <div class="flex items-center gap-3 mb-6">
+                        <iconify-icon icon="lucide:check-circle" class="text-green-500 text-2xl"></iconify-icon>
+                        <h4 class="font-bold text-green-800">销售实力</h4>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-2xl font-black text-green-700">30年</p>
+                            <p class="text-xs text-green-600/60">专注女裤</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-green-700">2300万+</p>
+                            <p class="text-xs text-green-600/60">女性用户</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-green-700">359万</p>
+                            <p class="text-xs text-green-600/60">抖音粉丝(主号)</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-green-700">12年</p>
+                            <p class="text-xs text-green-600/60">女裤全网销量第一</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-red-50/50 rounded-2xl p-8 border border-red-100/50">
+                    <div class="flex items-center gap-3 mb-6">
+                        <iconify-icon icon="lucide:alert-circle" class="text-red-400 text-2xl"></iconify-icon>
+                        <h4 class="font-bold text-red-800">品牌隐忧</h4>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-2xl font-black text-red-700">3.2万</p>
+                            <p class="text-xs text-red-600/60">小红书粉丝</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-red-700">日更40+</p>
+                            <p class="text-xs text-red-600/60">低质量视频轰炸</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-red-700">0</p>
+                            <p class="text-xs text-red-600/60">品牌调性内容</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-red-700">模糊</p>
+                            <p class="text-xs text-red-600/60">品牌人格定义</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-sm text-gray-500 font-light leading-relaxed space-y-3">
+                <p>连续12年女裤全网销量第一，3000万+中国女性人体数据，200+国际面料供应商，全国近1000家专卖店。</p>
+                <p>小红书仅3.2万粉丝（vs 抖音359万），所有渠道沉浸在销售转化，无一个渠道建立品牌调性。</p>
+            </div>
+
+            <!-- Core Contradiction -->
+            <div class="mt-8 bg-gradient-to-br from-[#0d1b2a] to-[#1a1a2e] rounded-3xl p-8 md:p-10 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-copper/10 rounded-full blur-[80px]"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-copper/20 rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="lucide:alert-triangle" class="text-copper text-xl"></iconify-icon>
+                        </div>
+                        <span class="text-xs font-bold text-copper tracking-widest uppercase">核心矛盾</span>
+                    </div>
+                    <p class="text-sm md:text-base font-light leading-relaxed text-white/80">
+                        逸阳用30年建立了「女裤专家」的供应链壁垒和销售渠道，但几乎没有投入资源建设「品牌心智」。在抖音，逸阳日更40-75条短视频，直播近乎全天候——这是一台效率极高的「卖货机器」，但当流量成本持续上升、投流停止的那一天，消费者搜索的不是<strong class="text-copper">「逸阳」</strong>，而是「女裤」「阔腿裤」「高弹力裤」。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Scan: Douyin -->
+        <div class="reveal mb-20">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.2</span>
+                渠道扫描：抖音
+            </h3>
+
+            <div class="overflow-x-auto -mx-6 px-6 mb-8">
+                <table class="proposal-table w-full text-sm rounded-xl overflow-hidden min-w-[600px]">
+                    <thead>
+                        <tr>
+                            <th class="text-left p-4 font-bold text-xs tracking-wider rounded-tl-xl">指标</th>
+                            <th class="p-4 text-xs">逸阳官方旗舰店</th>
+                            <th class="p-4 text-xs">逸阳旗舰店</th>
+                            <th class="p-4 text-xs rounded-tr-xl">行业参考值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-4 font-medium">粉丝量</td><td class="p-4 text-center text-gray-500">359.4万</td><td class="p-4 text-center text-gray-500">110.1万</td><td class="p-4 text-center text-gray-500">头部女装账号 150万+</td></tr>
+                        <tr><td class="p-4 font-medium">获赞量</td><td class="p-4 text-center text-gray-500">393.1万</td><td class="p-4 text-center text-gray-500">49.8万</td><td class="p-4 text-center text-gray-500">高粘性账号赞粉比>2:1</td></tr>
+                        <tr><td class="p-4 font-medium">日更频率</td><td class="p-4 text-center text-gray-500">20-43条/周</td><td class="p-4 text-center text-gray-500">20-32条/周</td><td class="p-4 text-center text-gray-500">优质品牌账号 3-5条/周</td></tr>
+                        <tr><td class="p-4 font-medium">内容类型</td><td class="p-4 text-center text-gray-500">99% 卖货短视频</td><td class="p-4 text-center text-gray-500">99% 卖货短视频</td><td class="p-4 text-center text-gray-500">品牌:种草:转化 = 2:5:3</td></tr>
+                        <tr><td class="p-4 font-medium">赞粉比</td><td class="p-4 text-center text-red-500 font-bold">1.09:1（极低）</td><td class="p-4 text-center text-red-500 font-bold">0.45:1（极低）</td><td class="p-4 text-center text-gray-500">高粘性账号 >2:1</td></tr>
+                        <tr><td class="p-4 font-medium rounded-bl-xl">品牌内容</td><td class="p-4 text-center text-red-500 font-bold">无</td><td class="p-4 text-center text-red-500 font-bold">无</td><td class="p-4 text-center text-gray-500 rounded-br-xl">每季1-2条品牌片</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                <p class="text-sm font-medium flex items-start gap-3">
+                    <iconify-icon icon="lucide:alert-circle" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                    <span>逸阳抖音账号的「赞粉比」仅为1.09:1和0.45:1。高粘性服饰账号通常在2:1以上。这意味着——<strong>粉丝关注了，但不互动、不传播、不形成口碑</strong>。日更40+条全是卖货内容，没有一条值得用户点赞和转发。逸阳的抖音粉丝是被「投流」买来的数字，不是被「品牌」吸引来的真实受众。</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Channel Scan: Others -->
+        <div class="reveal mb-8">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">1.3</span>
+                渠道扫描：小红书 / 官网 / 天猫
+            </h3>
+
+            <div class="space-y-5">
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center shrink-0">
+                            <iconify-icon icon="lucide:book-open" class="text-red-400 text-xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">小红书</h4>
+                            <span class="text-xs text-red-500 font-bold">仅 3.2万粉丝</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">作为359万抖音粉丝的品牌，小红书仅3.2万粉丝（不到1%），说明逸阳完全没有布局「种草-搜索」链路。小红书是女性为伴侣/家人选购男装的核心决策平台（代购型购买~20%），也是品牌调性建设的主阵地——逸阳在此几乎为零。</p>
+                </div>
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center shrink-0">
+                            <iconify-icon icon="lucide:shopping-cart" class="text-orange-400 text-xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">官网/天猫旗舰店</h4>
+                            <span class="text-xs text-orange-500 font-bold">纯销售导向</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">页面设计以SKU展示和促销信息为核心，缺乏品牌故事、品牌理念、品牌影片等「心智建设」内容。消费者进入页面后的路径是「看价格→比款式→下单或离开」，没有任何环节建立品牌认知和情感连接。</p>
+                </div>
+                <div class="insight-card rounded-2xl p-6 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center shrink-0">
+                            <iconify-icon icon="lucide:unlink" class="text-gray-500 text-xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">跨平台一致性</h4>
+                            <span class="text-xs text-gray-500 font-bold">不存在</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light">逸阳在抖音、小红书、天猫、官网的视觉风格、品牌话语、内容调性各不相同（甚至各自为政），消费者在不同触点接收到的品牌信息是碎片化的——根本无法形成统一的品牌印象。品牌人格是什么？逸阳自己可能都无法用一句话说清。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 2: CORE PROBLEMS ==================== -->
+<section id="ch2" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 02</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                核心问题拆解<br>
+                <span class="text-brand-primary">卖货很强，品牌很弱</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">数据背后的结构性风险</p>
+        </div>
+
+        <!-- Warning Case: Joeone -->
+        <div class="reveal mb-16">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">2.1</span>
+                警示案例：九牧王
+            </h3>
+
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <p class="text-sm text-gray-400 mb-6">九牧王2025年前三季度关键数据（上市公司公开财报）</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-brand-primary">21.3亿</p>
+                        <p class="text-xs text-gray-400 mt-1">前三季度营收</p>
+                        <p class="text-[10px] text-red-500 font-bold">同比下降 6.02%</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-brand-primary">51.3%</p>
+                        <p class="text-xs text-gray-400 mt-1">男裤收入占比</p>
+                        <p class="text-[10px] text-red-500 font-bold">核心品类增长乏力</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-brand-primary">~7%</p>
+                        <p class="text-xs text-gray-400 mt-1">线上收入占比</p>
+                        <p class="text-[10px] text-red-500 font-bold">数字化严重滞后</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-brand-primary">-187</p>
+                        <p class="text-xs text-gray-400 mt-1">净关店数</p>
+                        <p class="text-[10px] text-red-500 font-bold">前三季度关店187家</p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100/50">
+                    <p class="text-sm font-medium flex items-start gap-3">
+                        <iconify-icon icon="lucide:alert-circle" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                        <span>九牧王连续25年「男裤综合市场占有率第一」，却面临营收连续下滑、线上占比不到7%。<strong>核心教训：「品类专家」的标签不等于品牌资产。</strong></span>
+                    </p>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <p class="text-sm text-gray-600 font-light leading-relaxed">
+                        逸阳在女裤领域的供应链和销售壁垒远强于九牧王，但面临同样的风险：如果不趁销售强势时建立品牌资产，等到投流效率下降、竞争加剧时，已有的粉丝和销量都不会变成品牌护城河。<strong class="text-brand-text">现在是建设品牌的最佳时机</strong>——因为逸阳现在有流量、有利润、有时间。等到形势逼迫再做，成本会翻倍。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Structural Problems -->
+        <div class="reveal">
+            <h3 class="text-xl font-black mb-8 flex items-center gap-3">
+                <span class="text-copper font-display text-sm">2.2</span>
+                三个结构性品牌问题
+            </h3>
+
+            <div class="space-y-6">
+                <!-- Problem 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center font-display font-black text-red-400">1</span>
+                        <h4 class="font-bold text-lg">品牌人格缺失</h4>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">如果给逸阳一个性格，你能说出来吗？官方定义是「天生自信、乐观智慧、梦想坚定、精致成熟」——这是一段可以放在任何品牌上的空话。消费者记不住你是谁，只记得你便宜或者裤子还行。</p>
+                    <div class="bg-red-50/50 rounded-xl p-4 border border-red-100/30">
+                        <p class="text-xs text-red-700 font-medium flex items-center gap-2">
+                            <iconify-icon icon="lucide:alert-triangle" class="text-red-400"></iconify-icon>
+                            风险：一旦有品牌力更强的竞品以同价格带进入，消费者毫无忠诚度可言
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Problem 2 -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center font-display font-black text-red-400">2</span>
+                        <h4 class="font-bold text-lg">内容全是「量」没有「质」</h4>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">双账号日更40-75条短视频，直播12小时/天。这是「人力堆量」模式——每条视频的边际投入在增加，但单条ROI在下降。男装线EYAS如果复制这套模式，12.9万粉丝的基础上根本跑不起来。</p>
+                    <div class="bg-red-50/50 rounded-xl p-4 border border-red-100/30">
+                        <p class="text-xs text-red-700 font-medium flex items-center gap-2">
+                            <iconify-icon icon="lucide:alert-triangle" class="text-red-400"></iconify-icon>
+                            风险：内容成本持续上升，但没有任何一条视频能被消费者记住和传播
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Problem 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center font-display font-black text-red-400">3</span>
+                        <h4 class="font-bold text-lg">全渠道只做销售转化</h4>
+                    </div>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">抖音、天猫、官网、小红书——所有渠道都只有一个目标：卖货。没有任何一个渠道承担「品牌建设」的任务。这等于把所有鸡蛋放在「投流→转化」这一条路径上。</p>
+                    <div class="bg-red-50/50 rounded-xl p-4 border border-red-100/30">
+                        <p class="text-xs text-red-700 font-medium flex items-center gap-2">
+                            <iconify-icon icon="lucide:alert-triangle" class="text-red-400"></iconify-icon>
+                            风险：平台流量成本上升时，销售额会断崖式下跌，因为没有自然搜索和品牌心智兜底
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 3: BRAND BUILDING DIRECTION ==================== -->
+<section id="ch3" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 03</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                品牌建设方向建议<br>
+                <span class="text-brand-primary">营销与品牌，两条腿走路</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">营销是「右腿」，品牌是「左腿」—— 现在逸阳在单脚跳</p>
+        </div>
+
+        <div class="reveal grid md:grid-cols-2 gap-6">
+            <!-- Right Leg -->
+            <div class="bg-green-50/50 rounded-3xl p-8 border border-green-100/50">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                        <iconify-icon icon="lucide:check-circle" class="text-green-600 text-xl"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">右腿：营销/销售</h3>
+                        <span class="text-xs text-green-600 font-bold">当前强项</span>
+                    </div>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-600 font-light">
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 shrink-0"></iconify-icon>抖音双账号高频直播，持续产出销售额</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 shrink-0"></iconify-icon>天猫/京东旗舰店稳定运营</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 shrink-0"></iconify-icon>投流+短视频的转化链路成熟</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 shrink-0"></iconify-icon>供应链响应快，产品品质可靠</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 shrink-0"></iconify-icon>女裤核心品类复购率稳定</li>
+                </ul>
+            </div>
+
+            <!-- Left Leg -->
+            <div class="bg-red-50/50 rounded-3xl p-8 border border-red-100/50">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
+                        <iconify-icon icon="lucide:x-circle" class="text-red-400 text-xl"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">左腿：品牌建设</h3>
+                        <span class="text-xs text-red-500 font-bold">急需补齐</span>
+                    </div>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-600 font-light">
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:x" class="text-red-400 mt-0.5 shrink-0"></iconify-icon>定义清晰的品牌人格与视觉语言</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:x" class="text-red-400 mt-0.5 shrink-0"></iconify-icon>每季产出品牌调性内容（非卖货）</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:x" class="text-red-400 mt-0.5 shrink-0"></iconify-icon>建立品牌搜索心智（自然流量来源）</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:x" class="text-red-400 mt-0.5 shrink-0"></iconify-icon>分渠道的品牌内容策略</li>
+                    <li class="flex items-start gap-2"><iconify-icon icon="lucide:x" class="text-red-400 mt-0.5 shrink-0"></iconify-icon>男装线独立品牌体系（切断「妈妈裤」联想）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 4: CREATIVE DIRECTIONS ==================== -->
+<section id="ch4" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 04</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                创意方向提案<br>
+                <span class="text-brand-primary">三个可落地的品牌内容方向</span>
+            </h2>
+        </div>
+
+        <!-- Creative Direction 1 -->
+        <div class="reveal mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-copper rounded-xl flex items-center justify-center font-display font-black text-white">1</span>
+                    <div>
+                        <h3 class="font-bold text-lg">疯狂实验室</h3>
+                        <span class="text-xs text-gray-400">用数码评测的方式卖裤子</span>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100/50 mb-6">
+                    <p class="text-sm font-medium flex items-start gap-3">
+                        <iconify-icon icon="lucide:lightbulb" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                        <span><strong>核心洞察：</strong>男性是「参数党」——他们不关心品牌故事，但会被硬核数据和暴力测试吸引。这与数码科技评测的逻辑完全一致：用实验结果说话。</span>
+                    </p>
+                </div>
+
+                <h4 class="font-bold text-sm mb-4 text-copper">系列内容设计</h4>
+                <div class="grid sm:grid-cols-2 gap-3 mb-6">
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <iconify-icon icon="lucide:droplets" class="text-brand-primary mt-0.5 shrink-0"></iconify-icon>
+                        <div>
+                            <p class="font-bold text-sm">防污测试</p>
+                            <p class="text-xs text-gray-400">咖啡、可乐泼上去，纳米三防技术瞬间滑落</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <iconify-icon icon="lucide:shirt" class="text-brand-primary mt-0.5 shrink-0"></iconify-icon>
+                        <div>
+                            <p class="font-bold text-sm">抗皱测试</p>
+                            <p class="text-xs text-gray-400">裤子拧成麻花，松开后5秒恢复平整</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <iconify-icon icon="lucide:move" class="text-brand-primary mt-0.5 shrink-0"></iconify-icon>
+                        <div>
+                            <p class="font-bold text-sm">弹力测试</p>
+                            <p class="text-xs text-gray-400">武术达人穿西裤做大劈叉，特写受力</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                        <iconify-icon icon="lucide:timer" class="text-brand-primary mt-0.5 shrink-0"></iconify-icon>
+                        <div>
+                            <p class="font-bold text-sm">耐穿测试</p>
+                            <p class="text-xs text-gray-400">洗涤50次后版型对比，膝盖弹性回复数据</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl sm:col-span-2">
+                        <iconify-icon icon="lucide:eye-off" class="text-brand-primary mt-0.5 shrink-0"></iconify-icon>
+                        <div>
+                            <p class="font-bold text-sm">盲测PK</p>
+                            <p class="text-xs text-gray-400">逸阳 vs 竞品同价位裤子，不看标签凭手感投票</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <p class="text-xs text-brand-primary font-bold mb-2">品牌价值</p>
+                        <p class="text-xs text-gray-500 font-light">建立「裤装专家」的技术可信度，从「便宜好穿」升级到「专业可靠」</p>
+                    </div>
+                    <div class="bg-amber-50 rounded-xl p-4">
+                        <p class="text-xs text-copper font-bold mb-2">传播价值</p>
+                        <p class="text-xs text-gray-500 font-light">暴力测试类内容天然具有前3秒冲击力，完播率和互动率远高于卖货视频</p>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-4">
+                        <p class="text-xs text-green-600 font-bold mb-2">转化价值</p>
+                        <p class="text-xs text-gray-500 font-light">功能演示直接解决购买疑虑，可直接挂载商品链接，实现「种草即转化」</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 rounded-xl overflow-hidden bg-black">
+                    <video class="w-full" controls playsinline preload="metadata">
+                        <source src="./media/videos/eyas-wash-test.mp4" type="video/mp4">
+                    </video>
+                    <p class="text-[10px] text-gray-400 text-center py-2 bg-gray-900">示例 · 裤子洗涤50次前后版型对比</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creative Direction 2 -->
+        <div class="reveal mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-copper rounded-xl flex items-center justify-center font-display font-black text-white">2</span>
+                    <div>
+                        <h3 class="font-bold text-lg">品牌人格重塑</h3>
+                        <span class="text-xs text-gray-400">让逸阳有一张可辨识的「脸」</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                    <p class="text-sm text-gray-600 font-light leading-relaxed">
+                        <strong class="text-brand-text">问题：</strong>消费者能说出优衣库是「基本款」、GXG是「潮通勤」、九牧王是「商务裤」——但逸阳是什么？说不出来。品牌定义了「天生自信、乐观智慧、梦想坚定」，这些词放在任何一个品牌上都不违和，等于什么都没说。
+                    </p>
+                </div>
+
+                <h4 class="font-bold text-sm mb-4 text-copper">建议方向</h4>
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-pink-50 to-white rounded-2xl p-6 border border-pink-100/50">
+                        <h5 class="font-bold mb-2">女裤线：「懂你身体的裤子专家」</h5>
+                        <p class="text-sm text-gray-500 font-light">从「便宜好穿」升级到「每个中国女性都值得一条真正合身的裤子」——强调3000万人体数据、无缝斜裁等技术能力背后的温度</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-50 to-white rounded-2xl p-6 border border-blue-100/50">
+                        <h5 class="font-bold mb-2">男裤线(EYAS)：「不必费心思」</h5>
+                        <p class="text-sm text-gray-500 font-light">男性买裤子的本质是「减法」——不是追求最好的，而是排除最烦的麻烦。品牌承诺就是「买了这几条，裤子这件事你就再也不用想了」</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-amber-50 to-white rounded-2xl p-6 border border-amber-100/50">
+                        <h5 class="font-bold mb-2">统一底层：「做了20年裤子的人」</h5>
+                        <p class="text-sm text-gray-500 font-light">无论面向女性还是男性，逸阳的底层信任基座是一致的：30年裤装专注、3000万+人体数据、企业标准领跑者——这是地基，不是招牌</p>
+                    </div>
+                </div>
+
+                <h4 class="font-bold text-sm mb-4 mt-8 text-copper">视频示例</h4>
+                <div class="space-y-5">
+                    <div class="rounded-xl overflow-hidden bg-black">
+                        <video class="w-full" controls playsinline preload="metadata">
+                            <source src="./media/videos/eyas-scene-switch.mp4" type="video/mp4">
+                        </video>
+                        <p class="text-[10px] text-gray-400 text-center py-2 bg-gray-900">示例 · 都市男性裤装生活场景切换</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden bg-black">
+                        <video class="w-full" controls playsinline preload="metadata">
+                            <source src="./media/videos/eyas-week-life.mp4" type="video/mp4">
+                        </video>
+                        <p class="text-[10px] text-gray-400 text-center py-2 bg-gray-900">示例 · 周一到周日，一条黑裤七个场景</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creative Direction 3 -->
+        <div class="reveal mb-8">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 bg-copper rounded-xl flex items-center justify-center font-display font-black text-white">3</span>
+                    <div>
+                        <h3 class="font-bold text-lg">分渠道品牌内容矩阵</h3>
+                        <span class="text-xs text-gray-400">每个平台说不同的话，但讲同一个故事</span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto -mx-4 px-4">
+                    <table class="proposal-table w-full text-sm rounded-xl overflow-hidden min-w-[700px]">
+                        <thead>
+                            <tr>
+                                <th class="text-left p-4 font-bold text-xs tracking-wider rounded-tl-xl">渠道</th>
+                                <th class="p-4 text-xs">内容定位</th>
+                                <th class="p-4 text-xs">核心内容形式</th>
+                                <th class="p-4 text-xs rounded-tr-xl">品牌建设价值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-4 font-medium">抖音</td><td class="p-4 text-gray-500">功能展示+暴力测试</td><td class="p-4 text-gray-500">疯狂实验室/暴力测试/直播</td><td class="p-4 text-gray-500">建立品牌「技术、可靠」印象</td></tr>
+                            <tr><td class="p-4 font-medium">小红书</td><td class="p-4 text-gray-500">品牌种草+精致感</td><td class="p-4 text-gray-500">OOTD搭配/穿搭科普/省心指南</td><td class="p-4 text-gray-500">建立品牌「品位、好穿」印象</td></tr>
+                            <tr><td class="p-4 font-medium">视频号</td><td class="p-4 text-gray-500">品牌态度+深度内容</td><td class="p-4 text-gray-500">品牌态度片/纪录志/幕后真实</td><td class="p-4 text-gray-500">建立品牌「温度、深度」印象</td></tr>
+                            <tr><td class="p-4 font-medium">B站/知乎</td><td class="p-4 text-gray-500">深度测评+专业背书</td><td class="p-4 text-gray-500">面料测评/盲测PK/开发故事</td><td class="p-4 text-gray-500">建立品牌「真实、专业」印象</td></tr>
+                            <tr><td class="p-4 font-medium rounded-bl-xl">天猫/京东</td><td class="p-4 text-gray-500">品牌阵地+长效收割</td><td class="p-4 text-gray-500 rounded-br-xl">首页品牌故事/视频嵌入/会员体系</td><td class="p-4 text-gray-500">从「下一次」变成「每一次」</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 bg-gradient-to-r from-brand-primary/5 to-copper/5 rounded-2xl p-6 border border-brand-primary/10">
+                    <p class="text-sm font-medium flex items-start gap-3">
+                        <iconify-icon icon="lucide:key" class="text-copper text-lg mt-0.5 shrink-0"></iconify-icon>
+                        <span><strong>关键原则：</strong>不是在每个平台发一样的内容，而是根据平台特性和受众差异，用不同的表达方式传递同一个品牌内核。抖音前3秒定生死，要硬核视觉冲击；小红书要精致图文种草；视频号要有态度和深度。所有渠道的视觉语言和品牌话语必须统一，但内容形态各有侧重。</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 5: COOPERATION FRAMEWORK ==================== -->
+<section id="ch5" class="py-24 md:py-32 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 05</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                合作框架<br>
+                <span class="text-brand-primary">品牌战略合伙人模式</span>
+            </h2>
+            <p class="mt-6 text-gray-500 font-light">我们不是「帮你发抖音的乙方」，而是「嵌入你品牌建设体系的长期伙伴」</p>
+        </div>
+
+        <div class="reveal grid md:grid-cols-3 gap-6">
+            <!-- Pillar 1 -->
+            <div class="bg-gradient-to-br from-[#0d1b2a] to-[#1a1a2e] rounded-3xl p-8 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-copper/10 rounded-full blur-[60px]"></div>
+                <div class="relative z-10">
+                    <div class="w-10 h-10 bg-copper/20 rounded-xl flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:palette" class="text-copper text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-bold mb-1">品牌体系建设</h3>
+                    <span class="text-[10px] text-copper font-bold">天空智策主导</span>
+                    <ul class="mt-4 space-y-3 text-xs text-white/60 font-light">
+                        <li>品牌人格定义与视觉语言体系设计</li>
+                        <li>分渠道品牌内容策略与标准</li>
+                        <li>品牌调性内容创作（品牌片/态度片/实验室系列）</li>
+                        <li>AI赋能方案设计与落地（数字人/换装/Workflow）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="bg-gradient-to-br from-brand-primary to-[#1a3a6a] rounded-3xl p-8 text-white relative overflow-hidden">
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-[60px]"></div>
+                <div class="relative z-10">
+                    <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center mb-4">
+                        <iconify-icon icon="lucide:megaphone" class="text-white text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-bold mb-1">品牌账号运营</h3>
+                    <span class="text-[10px] text-white/60 font-bold">天空智策执行</span>
+                    <ul class="mt-4 space-y-3 text-xs text-white/60 font-light">
+                        <li>逸阳品牌内容账号运营（非卖货导向的品牌建设账号）</li>
+                        <li>EYAS男装线独立品牌账号从0到1搭建</li>
+                        <li>小红书品牌种草内容持续产出</li>
+                        <li>内容效果数据分析与迭代优化</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                <div class="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:truck" class="text-gray-500 text-xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold mb-1">销售运营体系</h3>
+                <span class="text-[10px] text-gray-400 font-bold">逸阳团队继续</span>
+                <ul class="mt-4 space-y-3 text-xs text-gray-500 font-light">
+                    <li>抖音直播间日常运营和投流</li>
+                    <li>天猫/京东旗舰店运营</li>
+                    <li>客服与售后</li>
+                    <li>供应链排产与库存管理</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider mx-auto max-w-4xl"></div>
+
+<!-- ==================== CHAPTER 6: VALUE DELIVERY ==================== -->
+<section id="ch6" class="py-24 md:py-32 px-6 bg-brand-surface/50">
+    <div class="container mx-auto max-w-4xl">
+        <div class="reveal mb-16">
+            <span class="text-copper font-bold text-xs tracking-widest mb-4 block uppercase">// Chapter 06</span>
+            <h2 class="font-serif-brand text-4xl md:text-5xl font-black leading-tight">
+                天空智策<br>
+                <span class="text-brand-primary">能给逸阳带来什么？</span>
+            </h2>
+        </div>
+
+        <div class="reveal grid sm:grid-cols-2 gap-6">
+            <div class="insight-card rounded-2xl p-8 transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:footprints" class="text-brand-primary text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-lg mb-2">品牌「左腿」补齐</h3>
+                <p class="text-sm text-gray-500 font-light mb-4">从纯销售驱动，升级为「销售+品牌」双引擎模式。建立品牌搜索心智，降低对投流的依赖度。</p>
+                <p class="text-xs text-copper font-bold">目标：6个月内品牌自然搜索流量占比提升</p>
+            </div>
+            <div class="insight-card rounded-2xl p-8 transition-all duration-300">
+                <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:zap" class="text-copper text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-lg mb-2">AI效率倍增</h3>
+                <p class="text-sm text-gray-500 font-light mb-4">将AI Workflow嵌入内容生产、直播运营、客服售后、竞品监控等环节，把「人力堆量」变成「系统复利」。</p>
+                <p class="text-xs text-copper font-bold">目标：单条内容ROI提升2倍，产出效率提升3倍</p>
+            </div>
+            <div class="insight-card rounded-2xl p-8 transition-all duration-300">
+                <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:shirt" class="text-green-600 text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-lg mb-2">男装线独立品牌体系</h3>
+                <p class="text-sm text-gray-500 font-light mb-4">为EYAS男装线建立独立于「妈妈裤」心智的品牌形象、视觉体系和内容矩阵。</p>
+                <p class="text-xs text-copper font-bold">目标：EYAS独立账号3个月内建立差异化品牌辨识度</p>
+            </div>
+            <div class="insight-card rounded-2xl p-8 transition-all duration-300">
+                <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+                    <iconify-icon icon="lucide:trending-up" class="text-purple-600 text-2xl"></iconify-icon>
+                </div>
+                <h3 class="font-bold text-lg mb-2">长期品牌资产积累</h3>
+                <p class="text-sm text-gray-500 font-light mb-4">每一条品牌内容、每一次品牌传播，都在为逸阳积累无形资产——这些资产不会随投流停止而消失。</p>
+                <p class="text-xs text-copper font-bold">目标：品牌溢价空间和消费者主动搜索量持续提升</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CLOSING ==================== -->
+<section class="py-32 px-6 bg-gradient-to-b from-[#0d1b2a] to-[#1a1a2e] text-center relative overflow-hidden">
+    <div class="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-primary/5 blur-[150px]"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-copper/5 blur-[120px]"></div>
+    <div class="container mx-auto max-w-3xl relative z-10">
+        <div class="reveal">
+            <p class="font-serif-brand text-2xl md:text-4xl font-black text-white/90 leading-relaxed mb-8">
+                逸阳30年，<br>
+                把裤子做到了极致。<br>
+                <span class="text-copper">下一个30年，</span><br>
+                让品牌也配得上这份极致。
+            </p>
+            <p class="text-white/40 text-lg font-light">
+                天空智策，愿做您的品牌战略合伙人。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="py-20 bg-gradient-to-b from-white to-brand-surface border-t border-gray-100">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-xs text-gray-300 mb-8">— 提案完 —</p>
+        <div class="mb-8">
+            <span class="font-serif-brand font-black text-xl tracking-tighter">天空智策</span>
+            <span class="font-display text-[9px] tracking-[0.3em] text-gray-400 block mt-1">SKY STRATECH</span>
+        </div>
+        <p class="text-[10px] text-gray-300 max-w-lg mx-auto leading-relaxed">
+            本文件为天空智策团队原创策略提案，仅供郑州云顶服饰有限公司内部评审使用。未经授权不得转载或分发。
+        </p>
+        <a href="./index.html" class="inline-flex items-center gap-2 text-xs font-bold text-copper mt-8 hover:text-brand-primary transition-colors">
+            <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+            返回天空智策官网
+        </a>
+    </div>
+</footer>
+
+<script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+        const bar = document.getElementById('progress-bar');
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        bar.style.width = (scrollTop / scrollHeight * 100) + '%';
+    });
+
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // TOC active state
+    const sections = document.querySelectorAll('section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 200;
+            if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        tocLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    });
+</script>
+
+</body>
+</html>
